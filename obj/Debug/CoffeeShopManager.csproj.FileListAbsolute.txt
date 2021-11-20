@@ -1,0 +1,12 @@
+D:\NamTu\CT251_WD\Project\CoffeeShopManager\bin\Debug\CoffeeShopManager.exe.config
+D:\NamTu\CT251_WD\Project\CoffeeShopManager\bin\Debug\CoffeeShopManager.exe
+D:\NamTu\CT251_WD\Project\CoffeeShopManager\bin\Debug\CoffeeShopManager.pdb
+D:\NamTu\CT251_WD\Project\CoffeeShopManager\obj\Debug\CoffeeShopManager.fAccountProfile.resources
+D:\NamTu\CT251_WD\Project\CoffeeShopManager\obj\Debug\CoffeeShopManager.fAdmin.resources
+D:\NamTu\CT251_WD\Project\CoffeeShopManager\obj\Debug\CoffeeShopManager.fTableManager.resources
+D:\NamTu\CT251_WD\Project\CoffeeShopManager\obj\Debug\CoffeeShopManager.fLogin.resources
+D:\NamTu\CT251_WD\Project\CoffeeShopManager\obj\Debug\CoffeeShopManager.Properties.Resources.resources
+D:\NamTu\CT251_WD\Project\CoffeeShopManager\obj\Debug\CoffeeShopManager.csproj.GenerateResource.cache
+D:\NamTu\CT251_WD\Project\CoffeeShopManager\obj\Debug\CoffeeShopManager.csproj.CoreCompileInputs.cache
+D:\NamTu\CT251_WD\Project\CoffeeShopManager\obj\Debug\CoffeeShopManager.exe
+D:\NamTu\CT251_WD\Project\CoffeeShopManager\obj\Debug\CoffeeShopManager.pdb
