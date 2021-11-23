@@ -78,6 +78,12 @@
       <DependentUpon>fAdmin.cs</DependentUpon>
     </Compile>
     <Compile Include="Food.cs" />
+    <Compile Include="fChangeTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fChangeTable.Designer.cs">
+      <DependentUpon>fChangeTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="fTableManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +105,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fAdmin.resx">
       <DependentUpon>fAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fChangeTable.resx">
+      <DependentUpon>fChangeTable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fTableManager.resx">
       <DependentUpon>fTableManager.cs</DependentUpon>

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CoffeeShopManager
+namespace QuanLyQuanCafe.Bill
 {
     public class Bill
     {
@@ -21,12 +21,13 @@ namespace CoffeeShopManager
         public Bill(DataRow row)
         {
             this.Id = (int)row["id"];
-            this.DateCheckIn = (DateTime?)row["DatecheckIn"];
+            this.DateCheckIn = (DateTime?)row["DateCheckIn"];
             var dateCheckOutTemp = row["DateCheckOut"];
-            if (dateCheckOutTemp.ToString() != "")
+            if (dateCheckOutTemp.ToString() !="")
                 this.DateCheckOut = (DateTime?)dateCheckOutTemp;
             this.Status = (int)row["status"];
-            this.Discount = (int)row["id"];
+            this.Discount = (int)row["discount"];
+
         }
         private int discount;
 

@@ -144,7 +144,6 @@ namespace CoffeeShopManager
             this.btnUpdateAccount.TabIndex = 6;
             this.btnUpdateAccount.Text = "Update";
             this.btnUpdateAccount.UseVisualStyleBackColor = true;
-            this.btnUpdateAccount.Click += new System.EventHandler(this.btnUpdateAccount_Click);
             // 
             // panel4
             // 

@@ -62,7 +62,7 @@ namespace CoffeeShopManager
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(107, 40);
             this.btnExit.TabIndex = 4;
-            this.btnExit.Text = "Exit";
+            this.btnExit.Text = "Thoát";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
@@ -73,7 +73,7 @@ namespace CoffeeShopManager
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(107, 40);
             this.btnLogin.TabIndex = 3;
-            this.btnLogin.Text = "Login";
+            this.btnLogin.Text = "Đăng nhập";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
@@ -101,9 +101,9 @@ namespace CoffeeShopManager
             this.passWord.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passWord.Location = new System.Drawing.Point(26, 21);
             this.passWord.Name = "passWord";
-            this.passWord.Size = new System.Drawing.Size(88, 21);
+            this.passWord.Size = new System.Drawing.Size(83, 21);
             this.passWord.TabIndex = 0;
-            this.passWord.Text = "Password:";
+            this.passWord.Text = "Mật khẩu:";
             // 
             // pnlUserName
             // 
@@ -128,9 +128,9 @@ namespace CoffeeShopManager
             this.userName.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.userName.Location = new System.Drawing.Point(26, 21);
             this.userName.Name = "userName";
-            this.userName.Size = new System.Drawing.Size(88, 21);
+            this.userName.Size = new System.Drawing.Size(125, 21);
             this.userName.TabIndex = 0;
-            this.userName.Text = "Username:";
+            this.userName.Text = "Tên đăng nhập:";
             // 
             // fLogin
             // 

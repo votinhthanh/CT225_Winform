@@ -19,10 +19,10 @@ namespace CoffeeShopManager
 
         public Menu(DataRow row)
         {
-            this.FoodName = row["name"].ToString();
-            this.Count = (int)row["count"];
-            this.Price = (float)Convert.ToDouble(row["price"].ToString());
-            this.TotalPrice = (float)Convert.ToDouble(row["total_price"].ToString());
+            this.FoodName = row["FoodName"].ToString();
+            this.Count = (int)row["Amount"];
+            this.Price = (float)Convert.ToDouble(row["Price"].ToString());
+            this.TotalPrice = (float)Convert.ToDouble(row["TotalPrice"].ToString());
         }
 
         private float totalPrice;
