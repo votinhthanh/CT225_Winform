@@ -274,10 +274,17 @@ namespace CoffeeShopManager
         /*XEM THÔNG TIN TÀI KHOẢN*/
         private void showInformationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            fAccountProfile f = new fAccountProfile();
+            fAccountProfile f = new fAccountProfile(LoginAccount);
+            f.UpdateAccountEvent += f_UpdateAccountEventProfile;
             f.ShowDialog();
             this.Show();
         }
+
+        private void f_UpdateAccountEventProfile(object sender, fAccountProfile.AccountEvent e)
+        {
+            accountInformationToolStripMenuItem.Text = "Thông tin tài khoản (" + e.Acc.DisplayName + ")";
+        }
+
         private void cbCategoryFood_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox cb = sender as ComboBox;

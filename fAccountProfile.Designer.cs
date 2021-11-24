@@ -59,55 +59,56 @@ namespace CoffeeShopManager
             // 
             this.pnlPass.Controls.Add(this.txtDisplayName);
             this.pnlPass.Controls.Add(this.passWord);
-            this.pnlPass.Location = new System.Drawing.Point(37, 108);
+            this.pnlPass.Location = new System.Drawing.Point(37, 110);
             this.pnlPass.Name = "pnlPass";
             this.pnlPass.Size = new System.Drawing.Size(535, 58);
             this.pnlPass.TabIndex = 4;
             // 
             // txtDisplayName
             // 
-            this.txtDisplayName.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDisplayName.Location = new System.Drawing.Point(195, 18);
+            this.txtDisplayName.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDisplayName.Location = new System.Drawing.Point(181, 12);
             this.txtDisplayName.Name = "txtDisplayName";
-            this.txtDisplayName.Size = new System.Drawing.Size(333, 28);
+            this.txtDisplayName.Size = new System.Drawing.Size(347, 34);
             this.txtDisplayName.TabIndex = 2;
             // 
             // passWord
             // 
             this.passWord.AutoSize = true;
-            this.passWord.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passWord.Location = new System.Drawing.Point(26, 21);
+            this.passWord.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passWord.Location = new System.Drawing.Point(3, 15);
             this.passWord.Name = "passWord";
-            this.passWord.Size = new System.Drawing.Size(114, 21);
+            this.passWord.Size = new System.Drawing.Size(133, 27);
             this.passWord.TabIndex = 0;
-            this.passWord.Text = "Display name:";
+            this.passWord.Text = "Tên hiển thị:";
             // 
             // pnlUserName
             // 
             this.pnlUserName.Controls.Add(this.txtUserName);
             this.pnlUserName.Controls.Add(this.userName);
-            this.pnlUserName.Location = new System.Drawing.Point(37, 32);
+            this.pnlUserName.Location = new System.Drawing.Point(37, 30);
             this.pnlUserName.Name = "pnlUserName";
             this.pnlUserName.Size = new System.Drawing.Size(535, 58);
             this.pnlUserName.TabIndex = 3;
             // 
             // txtUserName
             // 
-            this.txtUserName.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUserName.Location = new System.Drawing.Point(195, 18);
+            this.txtUserName.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUserName.Location = new System.Drawing.Point(181, 12);
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(333, 28);
+            this.txtUserName.ReadOnly = true;
+            this.txtUserName.Size = new System.Drawing.Size(347, 34);
             this.txtUserName.TabIndex = 1;
             // 
             // userName
             // 
             this.userName.AutoSize = true;
-            this.userName.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userName.Location = new System.Drawing.Point(26, 21);
+            this.userName.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userName.Location = new System.Drawing.Point(3, 15);
             this.userName.Name = "userName";
-            this.userName.Size = new System.Drawing.Size(88, 21);
+            this.userName.Size = new System.Drawing.Size(160, 27);
             this.userName.TabIndex = 0;
-            this.userName.Text = "Username:";
+            this.userName.Text = "Tên đăng nhập:";
             // 
             // panel1
             // 
@@ -125,109 +126,111 @@ namespace CoffeeShopManager
             // 
             // btnExit
             // 
+            this.btnExit.BackColor = System.Drawing.Color.Salmon;
             this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnExit.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.Location = new System.Drawing.Point(435, 439);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(109, 48);
             this.btnExit.TabIndex = 7;
-            this.btnExit.Text = "Exit";
-            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Text = "Thoát";
+            this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnUpdateAccount
             // 
-            this.btnUpdateAccount.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateAccount.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateAccount.Location = new System.Drawing.Point(272, 439);
             this.btnUpdateAccount.Name = "btnUpdateAccount";
             this.btnUpdateAccount.Size = new System.Drawing.Size(109, 48);
             this.btnUpdateAccount.TabIndex = 6;
-            this.btnUpdateAccount.Text = "Update";
+            this.btnUpdateAccount.Text = "Cập nhật";
             this.btnUpdateAccount.UseVisualStyleBackColor = true;
+            this.btnUpdateAccount.Click += new System.EventHandler(this.btnUpdateAccount_Click);
             // 
             // panel4
             // 
             this.panel4.Controls.Add(this.txtRetypeNewPass);
             this.panel4.Controls.Add(this.label3);
-            this.panel4.Location = new System.Drawing.Point(37, 340);
+            this.panel4.Location = new System.Drawing.Point(37, 350);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(535, 58);
             this.panel4.TabIndex = 7;
             // 
             // txtRetypeNewPass
             // 
-            this.txtRetypeNewPass.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRetypeNewPass.Location = new System.Drawing.Point(195, 18);
+            this.txtRetypeNewPass.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRetypeNewPass.Location = new System.Drawing.Point(181, 12);
             this.txtRetypeNewPass.Name = "txtRetypeNewPass";
-            this.txtRetypeNewPass.Size = new System.Drawing.Size(333, 28);
+            this.txtRetypeNewPass.Size = new System.Drawing.Size(347, 34);
             this.txtRetypeNewPass.TabIndex = 5;
             this.txtRetypeNewPass.UseSystemPasswordChar = true;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(26, 21);
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(3, 15);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 21);
+            this.label3.Size = new System.Drawing.Size(93, 27);
             this.label3.TabIndex = 0;
-            this.label3.Text = "Retype:";
+            this.label3.Text = "Nhập lại";
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.txtPassword);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(37, 187);
+            this.panel2.Location = new System.Drawing.Point(37, 190);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(535, 58);
             this.panel2.TabIndex = 5;
             // 
             // txtPassword
             // 
-            this.txtPassword.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(195, 18);
+            this.txtPassword.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Location = new System.Drawing.Point(181, 12);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(333, 28);
+            this.txtPassword.Size = new System.Drawing.Size(347, 34);
             this.txtPassword.TabIndex = 3;
             this.txtPassword.UseSystemPasswordChar = true;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(26, 21);
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 21);
+            this.label1.Size = new System.Drawing.Size(165, 27);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Password:";
+            this.label1.Text = "Nhập mật khẩu:";
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.txtNewPass);
             this.panel3.Controls.Add(this.label2);
-            this.panel3.Location = new System.Drawing.Point(37, 263);
+            this.panel3.Location = new System.Drawing.Point(37, 270);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(535, 58);
             this.panel3.TabIndex = 6;
             // 
             // txtNewPass
             // 
-            this.txtNewPass.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNewPass.Location = new System.Drawing.Point(195, 18);
+            this.txtNewPass.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNewPass.Location = new System.Drawing.Point(181, 12);
             this.txtNewPass.Name = "txtNewPass";
-            this.txtNewPass.Size = new System.Drawing.Size(333, 28);
+            this.txtNewPass.Size = new System.Drawing.Size(347, 34);
             this.txtNewPass.TabIndex = 4;
             this.txtNewPass.UseSystemPasswordChar = true;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(26, 21);
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(3, 15);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(126, 21);
+            this.label2.Size = new System.Drawing.Size(153, 27);
             this.label2.TabIndex = 0;
-            this.label2.Text = "New password:";
+            this.label2.Text = "Mật khẩu mới:";
             // 
             // fAccountProfile
             // 

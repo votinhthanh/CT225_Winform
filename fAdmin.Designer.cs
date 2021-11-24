@@ -225,6 +225,7 @@ namespace CoffeeShopManager
             this.dtgvBill.Name = "dtgvBill";
             this.dtgvBill.RowHeadersWidth = 51;
             this.dtgvBill.RowTemplate.Height = 24;
+            this.dtgvBill.RowTemplate.ReadOnly = true;
             this.dtgvBill.Size = new System.Drawing.Size(1212, 518);
             this.dtgvBill.TabIndex = 0;
             // 
@@ -431,6 +432,7 @@ namespace CoffeeShopManager
             this.dtgvFood.Name = "dtgvFood";
             this.dtgvFood.RowHeadersWidth = 51;
             this.dtgvFood.RowTemplate.Height = 30;
+            this.dtgvFood.RowTemplate.ReadOnly = true;
             this.dtgvFood.Size = new System.Drawing.Size(733, 504);
             this.dtgvFood.TabIndex = 0;
             // 
@@ -591,6 +593,7 @@ namespace CoffeeShopManager
             this.dtgvCategory.Name = "dtgvCategory";
             this.dtgvCategory.RowHeadersWidth = 51;
             this.dtgvCategory.RowTemplate.Height = 30;
+            this.dtgvCategory.RowTemplate.ReadOnly = true;
             this.dtgvCategory.Size = new System.Drawing.Size(733, 504);
             this.dtgvCategory.TabIndex = 0;
             // 
@@ -778,6 +781,7 @@ namespace CoffeeShopManager
             this.dtgvTable.Name = "dtgvTable";
             this.dtgvTable.RowHeadersWidth = 51;
             this.dtgvTable.RowTemplate.Height = 30;
+            this.dtgvTable.RowTemplate.ReadOnly = true;
             this.dtgvTable.Size = new System.Drawing.Size(733, 504);
             this.dtgvTable.TabIndex = 0;
             // 
