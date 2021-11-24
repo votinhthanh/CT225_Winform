@@ -37,4 +37,3 @@ D:\Project\CT251_windowsForm\obj\Debug\CoffeeShopManager.csproj.GenerateResource
 D:\Project\CT251_windowsForm\obj\Debug\CoffeeShopManager.csproj.CoreCompileInputs.cache
 D:\Project\CT251_windowsForm\obj\Debug\CoffeeShopManager.exe
 D:\Project\CT251_windowsForm\obj\Debug\CoffeeShopManager.pdb
-D:\Project\CT251_windowsForm\obj\Debug\CoffeeShopManager.csproj.AssemblyReference.cache

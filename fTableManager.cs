@@ -255,9 +255,61 @@ namespace CoffeeShopManager
         {
             fAdmin f = new fAdmin();
             f.UpdateAccountEvent += f_UpdateAccountEvent;
+            f.InsertCategoryFooodEvent += f_InsertCategoryFooodEvent;
+            f.UpdateCategoryFoodEvent += f_UpdateCategoryFoodEvent;
+            f.InsertTableFoodEvent += f_InsertTableFoodEvent;
+            f.UpdateTableFoodEvent += f_UpdateTableFoodEvent;
+            f.InsertFoodEvent += f_InsertFoodEvent;
+            f.UpdateFoodEvent += f_UpdateFoodEvent;
             f.loginAccount = LoginAccount;
             f.ShowDialog();
         }
+
+        private void f_UpdateFoodEvent(object sender, EventArgs e)
+        {
+            loadListCategoryFoodNameOnComboBox();
+            if (lsvBill.Tag != null)
+                ShowBill((lsvBill.Tag as Table).ID);
+            LoadListTable();
+        }
+
+        private void f_InsertFoodEvent(object sender, EventArgs e)
+        {
+            loadListCategoryFoodNameOnComboBox();
+            if (lsvBill.Tag != null)
+                ShowBill((lsvBill.Tag as Table).ID);
+            LoadListTable();
+        }
+
+        private void f_UpdateTableFoodEvent(object sender, EventArgs e)
+        {
+            if (lsvBill.Tag != null)
+                ShowBill((lsvBill.Tag as Table).ID);
+            LoadListTable();
+        }
+
+        private void f_InsertTableFoodEvent(object sender, EventArgs e)
+        {
+            if (lsvBill.Tag != null)
+                ShowBill((lsvBill.Tag as Table).ID);
+            LoadListTable();
+        }
+
+        private void f_UpdateCategoryFoodEvent(object sender, EventArgs e)
+        {
+            loadListCategoryFoodNameOnComboBox();
+            if (lsvBill.Tag != null)
+                ShowBill((lsvBill.Tag as Table).ID);
+            LoadListTable();
+        }
+        private void f_InsertCategoryFooodEvent(object sender, EventArgs e)
+        {
+            loadListCategoryFoodNameOnComboBox();
+            if (lsvBill.Tag != null)
+                ShowBill((lsvBill.Tag as Table).ID);
+            LoadListTable();
+        }
+
         private void f_UpdateAccountEvent(object sender, AccountEvent e)
         {
             if (LoginAccount.UserName.Equals(e.Acc.UserName))
@@ -276,6 +328,7 @@ namespace CoffeeShopManager
         {
             fAccountProfile f = new fAccountProfile(LoginAccount);
             f.UpdateAccountEvent += f_UpdateAccountEventProfile;
+
             f.ShowDialog();
             this.Show();
         }

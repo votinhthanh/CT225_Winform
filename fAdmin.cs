@@ -36,11 +36,14 @@ namespace CoffeeShopManager
             addTableFoodBinding();
             LoadListAccount();
             addAccountBinding();
-            //dtgvFood.DataSource = foodList;
         }
         #region Methods
         void LoadDateTimePickerBill()
         {
+            dtpkFromDate.Format = DateTimePickerFormat.Custom; 
+            dtpkFromDate.CustomFormat = "    'Từ ngày' dd 'tháng' MM 'năm' yyyy";
+            dtpkToDate.Format = DateTimePickerFormat.Custom;
+            dtpkToDate.CustomFormat = "    'Đến ngày' dd 'tháng' MM 'năm' yyyy";
             DateTime today = DateTime.Now;
             dtpkFromDate.Value = new DateTime(today.Year, today.Month, 1);
             dtpkToDate.Value = dtpkFromDate.Value.AddMonths(1).AddDays(-1);
@@ -63,6 +66,7 @@ namespace CoffeeShopManager
         }
 
         //FOOD
+        #region FoodMethods
         void addFoodBinding()
         {
             txtFoodName.DataBindings.Add(new Binding("Text", dtgvFood.DataSource, "TÊN MÓN", true, DataSourceUpdateMode.Never));
@@ -126,20 +130,63 @@ namespace CoffeeShopManager
             connection.Close();
             foodList.DataSource = data;
         }
+        Food GetFoodByName(string food_name)
+        {
+            string connectSTR = @"Data Source=.\sqlexpress;Initial Catalog=Coffee_Shop_Manager;Integrated Security=True";
+            SqlConnection connection = new SqlConnection(connectSTR);
+            connection.Open();
+            string query = "SELECT * FROM Food WHERE name = N'" + food_name + "'";
+            SqlCommand command = new SqlCommand(query, connection);
+            DataTable data = new DataTable();
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(data);
+            connection.Close();
+            Food food = null;
+            foreach (DataRow item in data.Rows)
+            {
+                food = new Food(item);
+                return food;
+            }
+            return food;
+        }
+        bool InsertFood(string food_name, int category_id, float food_price)
+        {
+            string connectSTR = @"Data Source=.\sqlexpress;Initial Catalog=Coffee_Shop_Manager;Integrated Security=True";
+            SqlConnection connection = new SqlConnection(connectSTR);
+            connection.Open();
+            string query = "INSERT Food (name, idCategory, price) VALUES (N'" + food_name + "', "+ category_id+", "+ food_price+")";
+            SqlCommand command = new SqlCommand(query, connection);
+            int result = 0;
+            result = (int)command.ExecuteNonQuery();
+            connection.Close();
+            return result > 0;
+        }
+        bool UpdateFood(int food_id, int category_id, string food_name, float food_price)
+        {
+            string connectSTR = @"Data Source=.\sqlexpress;Initial Catalog=Coffee_Shop_Manager;Integrated Security=True";
+            SqlConnection connection = new SqlConnection(connectSTR);
+            connection.Open();
+            string query = "UPDATE Food SET name = N'" + food_name + "', price = "+ food_price + ", idCategory = "+ category_id + " WHERE id = " + food_id;
+            SqlCommand command = new SqlCommand(query, connection);
+            int result = 0;
+            result = (int)command.ExecuteNonQuery();
+            connection.Close();
+            return result > 0;
+        }
+        #endregion
+
         //CATEGORY
+        #region CategoryMethods
         void addCategoryFoodBinding()
         {
             txtCategoryName.DataBindings.Add(new Binding("Text", dtgvCategory.DataSource, "TÊN DANH MỤC", true, DataSourceUpdateMode.Never));
             txtCategoryId.DataBindings.Add(new Binding("Text", dtgvCategory.DataSource, "MÃ", true, DataSourceUpdateMode.Never));
         }
-        public Category GetCategoryByName(string name)
+        Category GetCategoryByName(string name)
         {
             string connectSTR = @"Data Source=.\sqlexpress;Initial Catalog=Coffee_Shop_Manager;Integrated Security=True";
-
             SqlConnection connection = new SqlConnection(connectSTR);
-
             connection.Open();
-
             string query = "SELECT * FROM CategoryFood WHERE name = N'" + name + "'";
             SqlCommand command = new SqlCommand(query, connection);
             DataTable data = new DataTable();
@@ -159,7 +206,8 @@ namespace CoffeeShopManager
             string connectSTR = @"Data Source=.\sqlexpress;Initial Catalog=Coffee_Shop_Manager;Integrated Security=True";
             SqlConnection connection = new SqlConnection(connectSTR);
             connection.Open();
-            string query = "SELECT c.id AS [MÃ], c.name AS [TÊN DANH MỤC], count(f.id) as [SỐ LƯỢNG MÓN] FROM CategoryFood AS c JOIN Food AS f ON f.idCategory = c.id GROUP BY c.name, c.id";
+            string query = "SELECT c.id AS [MÃ], c.name AS [TÊN DANH MỤC], (CASE WHEN COUNT(f.id) > 0 THEN COUNT(f.id) ELSE 0 END) as [SỐ LƯỢNG MÓN] ";
+                query += "FROM CategoryFood AS c LEFT JOIN Food AS f ON f.idCategory = c.id GROUP BY c.name, c.id";
             SqlCommand command = new SqlCommand(query, connection);
             DataTable data = new DataTable();
             SqlDataAdapter adapter = new SqlDataAdapter(command);
@@ -167,8 +215,34 @@ namespace CoffeeShopManager
             connection.Close();
             categoryFoodList.DataSource = data;
         }
+        bool InsertCategory(string category_name)
+        {
+            string connectSTR = @"Data Source=.\sqlexpress;Initial Catalog=Coffee_Shop_Manager;Integrated Security=True";
+            SqlConnection connection = new SqlConnection(connectSTR);
+            connection.Open();
+            string query = "INSERT CategoryFood (name) VALUES (N'" + category_name + "')";
+            SqlCommand command = new SqlCommand(query, connection);
+            int result = 0;
+            result = (int)command.ExecuteNonQuery();
+            connection.Close();
+            return result > 0;
+        }
+        bool UpdateCategory(int category_id, string category_name)
+        {
+            string connectSTR = @"Data Source=.\sqlexpress;Initial Catalog=Coffee_Shop_Manager;Integrated Security=True";
+            SqlConnection connection = new SqlConnection(connectSTR);
+            connection.Open();
+            string query = "UPDATE CategoryFood SET name = N'" + category_name + "' WHERE id = "+ category_id;
+            SqlCommand command = new SqlCommand(query, connection);
+            int result = 0;
+            result = (int)command.ExecuteNonQuery();
+            connection.Close();
+            return result > 0;
+        }
+        #endregion
 
         //TABLE
+        #region TableMethods
         void addTableFoodBinding()
         {
             txtTableName.DataBindings.Add(new Binding("Text", dtgvTable.DataSource, "TÊN BÀN", true, DataSourceUpdateMode.Never));
@@ -189,8 +263,53 @@ namespace CoffeeShopManager
             connection.Close();
             tableFoodList.DataSource = data;
         }
+        Table GetTableByName(string table_name)
+        {
+            string connectSTR = @"Data Source=.\sqlexpress;Initial Catalog=Coffee_Shop_Manager;Integrated Security=True";
+            SqlConnection connection = new SqlConnection(connectSTR);
+            connection.Open();
+            string query = "SELECT * FROM TableFood WHERE name = N'" + table_name + "'";
+            SqlCommand command = new SqlCommand(query, connection);
+            DataTable data = new DataTable();
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(data);
+            connection.Close();
+            Table table = null;
+            foreach (DataRow item in data.Rows)
+            {
+                table = new Table(item);
+                return table;
+            }
+            return table;
+        }
+        bool InsertTable(string table_name)
+        {
+            string connectSTR = @"Data Source=.\sqlexpress;Initial Catalog=Coffee_Shop_Manager;Integrated Security=True";
+            SqlConnection connection = new SqlConnection(connectSTR);
+            connection.Open();
+            string query = "INSERT TableFood (name) VALUES (N'" + table_name + "')";
+            SqlCommand command = new SqlCommand(query, connection);
+            int result = 0;
+            result = (int)command.ExecuteNonQuery();
+            connection.Close();
+            return result > 0;
+        }
+        bool UpdateTable(int table_id, string table_name, string table_status)
+        {
+            string connectSTR = @"Data Source=.\sqlexpress;Initial Catalog=Coffee_Shop_Manager;Integrated Security=True";
+            SqlConnection connection = new SqlConnection(connectSTR);
+            connection.Open();
+            string query = "UPDATE TableFood SET name = N'" + table_name + "', status = N'" + table_status + "' WHERE id = " + table_id;
+            SqlCommand command = new SqlCommand(query, connection);
+            int result = 0;
+            result = (int)command.ExecuteNonQuery();
+            connection.Close();
+            return result > 0;
+        }
+        #endregion
 
         //Account
+        #region AccountMethods
         void addAccountBinding()
         {
             txtUserName.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "TÊN ĐĂNG NHẬP", true, DataSourceUpdateMode.Never));
@@ -278,6 +397,7 @@ namespace CoffeeShopManager
             return result > 0;
         }
         #endregion
+        #endregion
 
         #region Events
         //BILL
@@ -288,6 +408,7 @@ namespace CoffeeShopManager
             LoadListBillByDate(beginDate, endDate);
         }
         //FOOD
+        #region FoodEvents
         private void txtFoodID_TextChanged(object sender, EventArgs e)
         {
             if (dtgvFood.SelectedCells.Count > 0)
@@ -326,7 +447,210 @@ namespace CoffeeShopManager
         {
             LoadListFood();
         }
+        private event EventHandler insertFoodEvent;
+        public event EventHandler InsertFoodEvent
+        {
+            add { insertFoodEvent += value; }
+            remove { insertFoodEvent -= value; }
+        }
+        private event EventHandler updateFoodEvent;
+        public event EventHandler UpdateFoodEvent
+        {
+            add { updateFoodEvent += value; }
+            remove { updateFoodEvent -= value; }
+        }
+        private void btnAddFood_Click(object sender, EventArgs e)
+        {
+            string food_name = txtFoodName.Text;
+            int category_id = (cbFoodCategory.SelectedItem as Category).ID;
+            float food_price = (float)nmFoodPrice.Value;
+            Food food = GetFoodByName(food_name);
+            if (food != null)
+            {
+                MessageBox.Show("Món ăn đã tồn tại !!!", "Báo lỗi!");
+                return;
+            }
+            if (InsertFood(food_name, category_id, food_price))
+            {
+                MessageBox.Show("Thêm món '" + food_name + "' thành công !!!", "Thông báo !");
+                if (insertFoodEvent != null)
+                {
+                    insertFoodEvent(this, new EventArgs());
+                }
+                LoadListFood();
+            }
+            else
+            {
+                MessageBox.Show("Thêm món ăn KHÔNG thành công !!!", "Báo lỗi!");
+            }
+        }
+        private void btnEditFood_Click(object sender, EventArgs e)
+        {
+            int food_id = int.Parse(txtFoodID.Text);
+            int category_id = (cbFoodCategory.SelectedItem as Category).ID;
+            string food_name = txtFoodName.Text;
+            float food_price = (float)nmFoodPrice.Value;
+            if (UpdateFood(food_id, category_id, food_name, food_price))
+            {
+                MessageBox.Show("Cập nhật món '" + food_name + "' thành công !!!", "Thông báo !");
+                if (updateFoodEvent != null)
+                {
+                    updateFoodEvent(this, new EventArgs());
+                }
+                LoadListCategoryFood();
+            }
+            else
+            {
+                MessageBox.Show("Cập nhật món ăn KHÔNG thành công !!!", "Báo lỗi!");
+            }
+        }
+        #endregion
+
+        //CATEGORY
+        #region CaegoryEvents
+        private event EventHandler insertCategoryFoodEvent;
+        public event EventHandler InsertCategoryFooodEvent
+        {
+            add { insertCategoryFoodEvent += value; }
+            remove { insertCategoryFoodEvent -= value; }
+        }
+        private event EventHandler updateCategoryFoodEvent;
+        public event EventHandler UpdateCategoryFoodEvent
+        {
+            add { updateCategoryFoodEvent += value; }
+            remove { updateCategoryFoodEvent -= value; }
+        }
+        private void btnShowCategory_Click(object sender, EventArgs e)
+        {
+            LoadListCategoryFood();
+        }
+        private void btnAddCategory_Click(object sender, EventArgs e)
+        {
+            string category_name = txtCategoryName.Text;
+            
+            Category category = GetCategoryByName(category_name);
+            if(category != null)
+            {
+                MessageBox.Show("Danh mục đã tồn tại !!!", "Báo lỗi!");
+                return;
+            }
+            if (InsertCategory(category_name))
+            {
+                MessageBox.Show("Thêm danh mục '" + category_name + "' thành công !!!", "Thông báo !");
+                if (insertCategoryFoodEvent != null)
+                {
+                    insertCategoryFoodEvent(this, new EventArgs());
+                }
+                LoadListCategoryFood();
+            }
+            else
+            {
+                MessageBox.Show("Thêm danh mục không thành công !!!", "Báo lỗi!");
+            }
+        }
+        private void btnEditCategory_Click(object sender, EventArgs e)
+        {
+            int category_id = int.Parse(txtCategoryId.Text);
+            string category_name = txtCategoryName.Text;
+            if (UpdateCategory(category_id, category_name))
+            {
+                MessageBox.Show("Cập nhật danh mục '" + txtCategoryName.Text + "' thành công !!!", "Thông báo !");
+                if (updateCategoryFoodEvent != null)
+                {
+                    updateCategoryFoodEvent(this, new EventArgs());
+                }
+                LoadListCategoryFood();
+            }
+            else
+            {
+                MessageBox.Show("Cập nhật danh mục KHÔNG thành công !!!", "Báo lỗi!");
+            }
+        }
+        private void btnDelCategory_Click(object sender, EventArgs e)
+        {
+            int category_id = int.Parse(txtCategoryId.Text);
+            MessageBox.Show("Xóa danh mục '" + txtCategoryName.Text + "' !!!", "Thông báo !");
+            /*if (DeleteCategory(category_id))
+            {
+                MessageBox.Show("Xóa danh mục '" + txtCategoryName.Text + "' thành công !!!", "Thông báo !");
+                if (deleteCategoryFoodEvent != null)
+                {
+                    deleteCategoryFoodEvent(this, new EventArgs());
+                }
+                LoadListCategoryFood();
+            }
+            else
+            {
+                MessageBox.Show("Xóa danh mục KHÔNG thành công !!!", "Báo lỗi!");
+            }*/
+        }
+        #endregion
+
+        //TABLE
+        #region
+        private event EventHandler insertTableFoodEvent;
+        public event EventHandler InsertTableFoodEvent
+        {
+            add { insertTableFoodEvent += value; }
+            remove { insertTableFoodEvent -= value; }
+        }
+        private event EventHandler updateTableFoodEvent;
+        public event EventHandler UpdateTableFoodEvent
+        {
+            add { updateTableFoodEvent += value; }
+            remove { updateTableFoodEvent -= value; }
+        }
+        private void btnShowTable_Click(object sender, EventArgs e)
+        {
+            LoadListTableFood();
+        }
+        private void btnAddTable_Click(object sender, EventArgs e)
+        {
+            string table_name = txtTableName.Text;
+
+            Table table = GetTableByName(table_name);
+            if (table != null)
+            {
+                MessageBox.Show("Bàn đã tồn tại !!!", "Báo lỗi!");
+                return;
+            }
+            if (InsertTable(table_name))
+            {
+                MessageBox.Show("Thêm bàn mới thành công !!!", "Thông báo !");
+                if (insertTableFoodEvent != null)
+                {
+                    insertTableFoodEvent(this, new EventArgs());
+                }
+                LoadListTableFood();
+            }
+            else
+            {
+                MessageBox.Show("Thêm bàn mới KHÔNG thành công !!!", "Báo lỗi!");
+            }
+        }
+        private void btnEditTable_Click(object sender, EventArgs e)
+        {
+            int table_id = int.Parse(txtTableID.Text);
+            string table_name = txtTableName.Text;
+            string table_status = txtTableStatus.Text;
+            if (UpdateTable(table_id, table_name, table_status))
+            {
+                MessageBox.Show("Cập nhật '" + table_name + "' thành công !!!", "Thông báo !");
+                if (updateTableFoodEvent != null)
+                {
+                    updateTableFoodEvent(this, new EventArgs());
+                }
+                LoadListCategoryFood();
+            }
+            else
+            {
+                MessageBox.Show("Cập nhật bàn ăn KHÔNG thành công !!!", "Báo lỗi!");
+            }
+        }
+        #endregion
+
         //ACCOUNT
+        #region AccountEvents
         private event EventHandler<AccountEvent> updateAccountEvent;
         public event EventHandler<AccountEvent> UpdateAccountEvent
         {
@@ -408,6 +732,7 @@ namespace CoffeeShopManager
             }
         }
         #endregion
+        #endregion
 
         #region AccountEvents
         public class AccountEvent : EventArgs
@@ -423,6 +748,11 @@ namespace CoffeeShopManager
                 this.Acc = acc;
             }
         }
+
+
+
+
+
         #endregion
 
         

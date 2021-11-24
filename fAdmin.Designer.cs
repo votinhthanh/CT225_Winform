@@ -477,6 +477,7 @@ namespace CoffeeShopManager
             this.btnEditFood.TabIndex = 2;
             this.btnEditFood.Text = "Sửa";
             this.btnEditFood.UseVisualStyleBackColor = true;
+            this.btnEditFood.Click += new System.EventHandler(this.btnEditFood_Click);
             // 
             // btnAddFood
             // 
@@ -487,6 +488,7 @@ namespace CoffeeShopManager
             this.btnAddFood.TabIndex = 1;
             this.btnAddFood.Text = "Thêm";
             this.btnAddFood.UseVisualStyleBackColor = true;
+            this.btnAddFood.Click += new System.EventHandler(this.btnAddFood_Click);
             // 
             // tpCategory
             // 
@@ -617,6 +619,7 @@ namespace CoffeeShopManager
             this.btnShowCategory.TabIndex = 4;
             this.btnShowCategory.Text = "Hiển thị";
             this.btnShowCategory.UseVisualStyleBackColor = true;
+            this.btnShowCategory.Click += new System.EventHandler(this.btnShowCategory_Click);
             // 
             // btnDelCategory
             // 
@@ -627,6 +630,7 @@ namespace CoffeeShopManager
             this.btnDelCategory.TabIndex = 3;
             this.btnDelCategory.Text = "Xóa";
             this.btnDelCategory.UseVisualStyleBackColor = true;
+            this.btnDelCategory.Click += new System.EventHandler(this.btnDelCategory_Click);
             // 
             // btnEditCategory
             // 
@@ -637,6 +641,7 @@ namespace CoffeeShopManager
             this.btnEditCategory.TabIndex = 2;
             this.btnEditCategory.Text = "Sửa";
             this.btnEditCategory.UseVisualStyleBackColor = true;
+            this.btnEditCategory.Click += new System.EventHandler(this.btnEditCategory_Click);
             // 
             // btnAddCategory
             // 
@@ -647,6 +652,7 @@ namespace CoffeeShopManager
             this.btnAddCategory.TabIndex = 1;
             this.btnAddCategory.Text = "Thêm";
             this.btnAddCategory.UseVisualStyleBackColor = true;
+            this.btnAddCategory.Click += new System.EventHandler(this.btnAddCategory_Click);
             // 
             // tpTable
             // 
@@ -805,6 +811,7 @@ namespace CoffeeShopManager
             this.btnShowTable.TabIndex = 4;
             this.btnShowTable.Text = "Hiển thị";
             this.btnShowTable.UseVisualStyleBackColor = true;
+            this.btnShowTable.Click += new System.EventHandler(this.btnShowTable_Click);
             // 
             // btnDeltable
             // 
@@ -825,6 +832,7 @@ namespace CoffeeShopManager
             this.btnAddTable.TabIndex = 1;
             this.btnAddTable.Text = "Thêm";
             this.btnAddTable.UseVisualStyleBackColor = true;
+            this.btnAddTable.Click += new System.EventHandler(this.btnAddTable_Click);
             // 
             // btnEditTable
             // 
@@ -835,6 +843,7 @@ namespace CoffeeShopManager
             this.btnEditTable.TabIndex = 2;
             this.btnEditTable.Text = "Sửa";
             this.btnEditTable.UseVisualStyleBackColor = true;
+            this.btnEditTable.Click += new System.EventHandler(this.btnEditTable_Click);
             // 
             // tpAccount
             // 
