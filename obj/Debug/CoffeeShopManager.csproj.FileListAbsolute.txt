@@ -24,3 +24,16 @@ D:\Project\CT225_Winform\obj\Debug\CoffeeShopManager.exe
 D:\Project\CT225_Winform\obj\Debug\CoffeeShopManager.pdb
 D:\Project\CT225_Winform\obj\Debug\CoffeeShopManager.csproj.AssemblyReference.cache
 D:\Project\CT225_Winform\obj\Debug\CoffeeShopManager.fChangeTable.resources
+D:\Project\CT251_windowsForm\bin\Debug\CoffeeShopManager.exe.config
+D:\Project\CT251_windowsForm\bin\Debug\CoffeeShopManager.exe
+D:\Project\CT251_windowsForm\bin\Debug\CoffeeShopManager.pdb
+D:\Project\CT251_windowsForm\obj\Debug\CoffeeShopManager.fAccountProfile.resources
+D:\Project\CT251_windowsForm\obj\Debug\CoffeeShopManager.fAdmin.resources
+D:\Project\CT251_windowsForm\obj\Debug\CoffeeShopManager.fChangeTable.resources
+D:\Project\CT251_windowsForm\obj\Debug\CoffeeShopManager.fTableManager.resources
+D:\Project\CT251_windowsForm\obj\Debug\CoffeeShopManager.fLogin.resources
+D:\Project\CT251_windowsForm\obj\Debug\CoffeeShopManager.Properties.Resources.resources
+D:\Project\CT251_windowsForm\obj\Debug\CoffeeShopManager.csproj.GenerateResource.cache
+D:\Project\CT251_windowsForm\obj\Debug\CoffeeShopManager.csproj.CoreCompileInputs.cache
+D:\Project\CT251_windowsForm\obj\Debug\CoffeeShopManager.exe
+D:\Project\CT251_windowsForm\obj\Debug\CoffeeShopManager.pdb
