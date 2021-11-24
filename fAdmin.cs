@@ -15,10 +15,17 @@ namespace CoffeeShopManager
     public partial class fAdmin : Form
     {
         BindingSource foodList = new BindingSource();
-
+        BindingSource categoryFoodList = new BindingSource();
+        BindingSource tableFoodList = new BindingSource();
+        BindingSource accountList = new BindingSource();
+        public Account loginAccount;
         public fAdmin()
         {
             InitializeComponent();
+            dtgvFood.DataSource = foodList;
+            dtgvCategory.DataSource = categoryFoodList;
+            dtgvTable.DataSource = tableFoodList;
+            dtgvAccount.DataSource = accountList;
             LoadDateTimePickerBill();
             LoadListFood();
             LoadListCategoryNameForComboBox();
@@ -76,7 +83,7 @@ namespace CoffeeShopManager
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             adapter.Fill(data);
             connection.Close();
-            dtgvFood.DataSource = data;
+            foodList.DataSource = data;
         }
         void LoadListCategoryNameForComboBox()
         {
@@ -101,6 +108,23 @@ namespace CoffeeShopManager
 
             cbFoodCategory.DataSource = listCategory;
             cbFoodCategory.DisplayMember = "Name";
+        }
+        void LoadListFoodLikeValueSearch(string key_search)
+        {
+            string connectSTR = @"Data Source=.\sqlexpress;Initial Catalog=Coffee_Shop_Manager;Integrated Security=True";
+
+            SqlConnection connection = new SqlConnection(connectSTR);
+
+            connection.Open();
+
+            string query = "SELECT f.id AS [MÃ], f.name AS [TÊN MÓN], c.name AS [DANH MỤC], price AS [GIÁ] FROM Food AS f JOIN CategoryFood AS c ON f.idCategory = c.id";
+            query += " WHERE f.name LIKE N'%" + key_search + "%'";
+            SqlCommand command = new SqlCommand(query, connection);
+            DataTable data = new DataTable();
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(data);
+            connection.Close();
+            foodList.DataSource = data;
         }
         //CATEGORY
         void addCategoryFoodBinding()
@@ -141,7 +165,7 @@ namespace CoffeeShopManager
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             adapter.Fill(data);
             connection.Close();
-            dtgvCategory.DataSource = data;
+            categoryFoodList.DataSource = data;
         }
 
         //TABLE
@@ -163,7 +187,7 @@ namespace CoffeeShopManager
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             adapter.Fill(data);
             connection.Close();
-            dtgvTable.DataSource = data;
+            tableFoodList.DataSource = data;
         }
 
         //Account
@@ -184,17 +208,86 @@ namespace CoffeeShopManager
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             adapter.Fill(data);
             connection.Close();
-            dtgvAccount.DataSource = data;
+            accountList.DataSource = data;
+        }
+        Account getAccountByUserName(string username)
+        {
+            string connectSTR = @"Data Source=.\sqlexpress;Initial Catalog=Coffee_Shop_Manager;Integrated Security=True";
+            SqlConnection connection = new SqlConnection(connectSTR);
+            connection.Open();
+            string query = "SELECT * FROM Account WHERE UserName = N'" + username + "'";
+            SqlCommand command = new SqlCommand(query, connection);
+            DataTable data = new DataTable();
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(data);
+            connection.Close();
+            foreach (DataRow item in data.Rows)
+            {
+                return new Account(item);
+            }
+            return null;
+        }
+        bool InsertAccount(string username, string displayname, int type)
+        {
+            string password_new = "0";
+            string connectSTR = @"Data Source=.\sqlexpress;Initial Catalog=Coffee_Shop_Manager;Integrated Security=True";
+            SqlConnection connection = new SqlConnection(connectSTR);
+            connection.Open();
+            string query = "INSERT Account (UserName, DisplayName, Type, PassWord) VALUES (N'" + username + "', N'" + displayname + "', " + type + ", N'" + password_new + "')";
+            SqlCommand command = new SqlCommand(query, connection);
+            int result = 0;
+            result = (int)command.ExecuteNonQuery();
+            connection.Close();
+            return result > 0;
+        }
+        bool DeleteAccount(string username)
+        {
+            string connectSTR = @"Data Source=.\sqlexpress;Initial Catalog=Coffee_Shop_Manager;Integrated Security=True";
+            SqlConnection connection = new SqlConnection(connectSTR);
+            connection.Open();
+            string query = "DELETE Account WHERE UserName = N'" + username + "'";
+            SqlCommand command = new SqlCommand(query, connection);
+            int result = 0;
+            result = (int)command.ExecuteNonQuery();
+            connection.Close();
+            return result > 0;
+        }
+        bool UpdateAccount(string username, string display_name, int type)
+        {
+            string connectSTR = @"Data Source=.\sqlexpress;Initial Catalog=Coffee_Shop_Manager;Integrated Security=True";
+            SqlConnection connection = new SqlConnection(connectSTR);
+            connection.Open();
+            string query = "UPDATE Account SET DisplayName = N'"+ display_name+ "', Type = " +type+ " WHERE UserName = N'"+username+"'";
+            SqlCommand command = new SqlCommand(query, connection);            
+            int result = 0;
+            result = (int)command.ExecuteNonQuery();
+            connection.Close();
+            return result > 0;
+        }
+        bool ResetPasswordAccount(string username)
+        {
+            string password = "0";
+            string connectSTR = @"Data Source=.\sqlexpress;Initial Catalog=Coffee_Shop_Manager;Integrated Security=True";
+            SqlConnection connection = new SqlConnection(connectSTR);
+            connection.Open();
+            string query = "UPDATE Account SET PassWord = N'" + password + "' WHERE UserName = N'" + username + "'";
+            SqlCommand command = new SqlCommand(query, connection);
+            int result = 0;
+            result = (int)command.ExecuteNonQuery();
+            connection.Close();
+            return result > 0;
         }
         #endregion
 
         #region Events
+        //BILL
         private void btnViewBill_Click(object sender, EventArgs e)
         {
             string beginDate = dtpkFromDate.Value.Date.ToString("yyyy-MM-dd");
             string endDate = dtpkToDate.Value.Date.ToString("yyyy-MM-dd");
             LoadListBillByDate(beginDate, endDate);
         }
+        //FOOD
         private void txtFoodID_TextChanged(object sender, EventArgs e)
         {
             if (dtgvFood.SelectedCells.Count > 0)
@@ -219,7 +312,119 @@ namespace CoffeeShopManager
                 }
             }
         }
+        private void txtSearchFood_Click(object sender, EventArgs e)
+        {
+            txtSearchFood.Text = "";
+        }
+        private void btnSearchFood_Click(object sender, EventArgs e)
+        {
+            string key_search = txtSearchFood.Text;
+            if (!key_search.Equals("")) LoadListFoodLikeValueSearch(key_search);
+            else LoadListFood();
+        }
+        private void btnShowFood_Click(object sender, EventArgs e)
+        {
+            LoadListFood();
+        }
+        //ACCOUNT
+        private event EventHandler<AccountEvent> updateAccountEvent;
+        public event EventHandler<AccountEvent> UpdateAccountEvent
+        {
+            add { updateAccountEvent += value; }
+            remove { updateAccountEvent -= value; }
+        }
+        private void btnShowAccount_Click(object sender, EventArgs e)
+        {
+            LoadListAccount();
+        }
+        private void btnAddAccount_Click(object sender, EventArgs e)
+        {
+            string username = txtUserName.Text;
+            string displayname = txtDisplayName.Text;
+            int type = int.Parse(txtAccountType.Text);
+            Account acc = getAccountByUserName(username);
+            if (acc == null)
+            {
+                if (InsertAccount(username, displayname, type))
+                {
+                    MessageBox.Show("Thêm tài khoản '" + username + "' thành công !!!", "Thông báo !");
+                    LoadListAccount();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Thêm tài khoản không thành công !!!", "Báo lỗi!");
+            }
+        }
+        private void btnEditAccount_Click(object sender, EventArgs e)
+        {
+            string username = txtUserName.Text;
+            string display_name = txtDisplayName.Text;
+            int type = int.Parse(txtAccountType.Text);
+            bool isSuccessfull = UpdateAccount(username, display_name, type);
+            if (isSuccessfull)
+            {
+                MessageBox.Show("Cập nhật tài khoản '" + username + "' thành công !!!", "Thông báo !");
+                if (updateAccountEvent != null)
+                {
+                    updateAccountEvent(this, new AccountEvent(getAccountByUserName(username)));
+                }
+                LoadListAccount();
+            }
+            else
+            {
+                MessageBox.Show("Cập nhật tài khoản không thành công !!!", "Báo lỗi !");
+            }
+        }
+        private void btnDelAccount_Click(object sender, EventArgs e)
+        {
+            string username = txtUserName.Text;
+            if (loginAccount.UserName.Equals(username))
+            {
+                MessageBox.Show("Không thể xóa tài khoản đang đăng nhập !!!", "Cảnh lỗi !");
+                return;
+            }
+            if (DeleteAccount(username))
+            {
+                MessageBox.Show("Xóa tài khoản '" + username + "' thành công !!!", "Thông báo !");
+                LoadListAccount();
+            }
+            else
+            {
+                MessageBox.Show("Xóa tài khoản '" + username + "' không thành công !!!", "Báo lỗi !");
+            }
+        }
+        private void btnResetPass_Click(object sender, EventArgs e)
+        {
+            string username = txtUserName.Text;
+            if (ResetPasswordAccount(username))
+            {
+                MessageBox.Show("Khôi phục mật khẩu thành công !!!", "Thông báo !");
+                LoadListAccount();
+            }
+            else
+            {
+                MessageBox.Show("Khôi phục mật khẩu không thành công !!!", "Báo lỗi !");
+            }
+        }
         #endregion
 
+        #region AccountEvents
+        public class AccountEvent : EventArgs
+        {
+            private Account acc;
+            public Account Acc
+            {
+                get{ return acc; }
+                set{ acc = value; }
+            }
+            public AccountEvent(Account acc)
+            {
+                this.Acc = acc;
+            }
+        }
+        #endregion
+
+        
     }
 }

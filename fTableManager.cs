@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static CoffeeShopManager.fAdmin;
 
 namespace CoffeeShopManager
 {
@@ -253,8 +254,18 @@ namespace CoffeeShopManager
         private void adminToolStripMenuItem_Click(object sender, EventArgs e)
         {
             fAdmin f = new fAdmin();
+            f.UpdateAccountEvent += f_UpdateAccountEvent;
+            f.loginAccount = LoginAccount;
             f.ShowDialog();
         }
+        private void f_UpdateAccountEvent(object sender, AccountEvent e)
+        {
+            if (LoginAccount.UserName.Equals(e.Acc.UserName))
+            {
+                accountInformationToolStripMenuItem.Text = "Thông tin tài khoản (" + e.Acc.DisplayName + ")";
+            }
+        }
+
         /*ĐĂNG XUẤT TÀI KHOẢN*/
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {

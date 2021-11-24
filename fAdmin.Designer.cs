@@ -62,6 +62,7 @@ namespace CoffeeShopManager
             this.btnEditFood = new System.Windows.Forms.Button();
             this.btnAddFood = new System.Windows.Forms.Button();
             this.tpCategory = new System.Windows.Forms.TabPage();
+            this.label15 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
             this.txtCategoryName = new System.Windows.Forms.TextBox();
@@ -77,6 +78,7 @@ namespace CoffeeShopManager
             this.btnEditCategory = new System.Windows.Forms.Button();
             this.btnAddCategory = new System.Windows.Forms.Button();
             this.tpTable = new System.Windows.Forms.TabPage();
+            this.label14 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
             this.txtTableStatus = new System.Windows.Forms.TextBox();
@@ -95,6 +97,7 @@ namespace CoffeeShopManager
             this.btnAddTable = new System.Windows.Forms.Button();
             this.btnEditTable = new System.Windows.Forms.Button();
             this.tpAccount = new System.Windows.Forms.TabPage();
+            this.label13 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.btnResetPass = new System.Windows.Forms.Button();
             this.panel20 = new System.Windows.Forms.Panel();
@@ -113,9 +116,6 @@ namespace CoffeeShopManager
             this.btnDelAccount = new System.Windows.Forms.Button();
             this.btnEditAccount = new System.Windows.Forms.Button();
             this.btnAddAccount = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.tpRevenue.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -394,22 +394,25 @@ namespace CoffeeShopManager
             // 
             // txtSearchFood
             // 
-            this.txtSearchFood.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchFood.Location = new System.Drawing.Point(13, 29);
+            this.txtSearchFood.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchFood.Location = new System.Drawing.Point(22, 25);
             this.txtSearchFood.Name = "txtSearchFood";
-            this.txtSearchFood.Size = new System.Drawing.Size(301, 33);
+            this.txtSearchFood.Size = new System.Drawing.Size(301, 36);
             this.txtSearchFood.TabIndex = 5;
             this.txtSearchFood.Text = "Nhập tên món ăn...\r\n";
+            this.txtSearchFood.Click += new System.EventHandler(this.txtSearchFood_Click);
+            this.txtSearchFood.TextChanged += new System.EventHandler(this.btnSearchFood_Click);
             // 
             // btnSearchFood
             // 
             this.btnSearchFood.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearchFood.Location = new System.Drawing.Point(321, 19);
+            this.btnSearchFood.Location = new System.Drawing.Point(333, 25);
             this.btnSearchFood.Name = "btnSearchFood";
-            this.btnSearchFood.Size = new System.Drawing.Size(125, 52);
+            this.btnSearchFood.Size = new System.Drawing.Size(113, 36);
             this.btnSearchFood.TabIndex = 6;
             this.btnSearchFood.Text = "Tìm món";
             this.btnSearchFood.UseVisualStyleBackColor = true;
+            this.btnSearchFood.Click += new System.EventHandler(this.btnSearchFood_Click);
             // 
             // panel3
             // 
@@ -451,6 +454,7 @@ namespace CoffeeShopManager
             this.btnShowFood.TabIndex = 4;
             this.btnShowFood.Text = "Hiển thị";
             this.btnShowFood.UseVisualStyleBackColor = true;
+            this.btnShowFood.Click += new System.EventHandler(this.btnShowFood_Click);
             // 
             // btnDelFood
             // 
@@ -495,6 +499,17 @@ namespace CoffeeShopManager
             this.tpCategory.TabIndex = 3;
             this.tpCategory.Text = "Danh mục món ăn";
             this.tpCategory.UseVisualStyleBackColor = true;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label15.Location = new System.Drawing.Point(865, 37);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(259, 26);
+            this.label15.TabIndex = 6;
+            this.label15.Text = "THÔNG TIN CHI TIẾT";
             // 
             // panel10
             // 
@@ -643,6 +658,17 @@ namespace CoffeeShopManager
             this.tpTable.TabIndex = 4;
             this.tpTable.Text = "Bàn ăn";
             this.tpTable.UseVisualStyleBackColor = true;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label14.Location = new System.Drawing.Point(865, 37);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(259, 26);
+            this.label14.TabIndex = 6;
+            this.label14.Text = "THÔNG TIN CHI TIẾT";
             // 
             // panel11
             // 
@@ -820,6 +846,17 @@ namespace CoffeeShopManager
             this.tpAccount.Text = "Tài khoản";
             this.tpAccount.UseVisualStyleBackColor = true;
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label13.Location = new System.Drawing.Point(865, 37);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(259, 26);
+            this.label13.TabIndex = 5;
+            this.label13.Text = "THÔNG TIN CHI TIẾT";
+            // 
             // panel12
             // 
             this.panel12.Controls.Add(this.btnResetPass);
@@ -840,6 +877,7 @@ namespace CoffeeShopManager
             this.btnResetPass.TabIndex = 5;
             this.btnResetPass.Text = "Khôi phục mật khẩu";
             this.btnResetPass.UseVisualStyleBackColor = true;
+            this.btnResetPass.Click += new System.EventHandler(this.btnResetPass_Click);
             // 
             // panel20
             // 
@@ -938,6 +976,7 @@ namespace CoffeeShopManager
             this.dtgvAccount.Name = "dtgvAccount";
             this.dtgvAccount.RowHeadersWidth = 51;
             this.dtgvAccount.RowTemplate.Height = 30;
+            this.dtgvAccount.RowTemplate.ReadOnly = true;
             this.dtgvAccount.Size = new System.Drawing.Size(733, 504);
             this.dtgvAccount.TabIndex = 0;
             // 
@@ -961,6 +1000,7 @@ namespace CoffeeShopManager
             this.btnShowAccount.TabIndex = 4;
             this.btnShowAccount.Text = "Hiển thị";
             this.btnShowAccount.UseVisualStyleBackColor = true;
+            this.btnShowAccount.Click += new System.EventHandler(this.btnShowAccount_Click);
             // 
             // btnDelAccount
             // 
@@ -971,6 +1011,7 @@ namespace CoffeeShopManager
             this.btnDelAccount.TabIndex = 3;
             this.btnDelAccount.Text = "Xóa";
             this.btnDelAccount.UseVisualStyleBackColor = true;
+            this.btnDelAccount.Click += new System.EventHandler(this.btnDelAccount_Click);
             // 
             // btnEditAccount
             // 
@@ -981,6 +1022,7 @@ namespace CoffeeShopManager
             this.btnEditAccount.TabIndex = 2;
             this.btnEditAccount.Text = "Sửa";
             this.btnEditAccount.UseVisualStyleBackColor = true;
+            this.btnEditAccount.Click += new System.EventHandler(this.btnEditAccount_Click);
             // 
             // btnAddAccount
             // 
@@ -991,39 +1033,7 @@ namespace CoffeeShopManager
             this.btnAddAccount.TabIndex = 1;
             this.btnAddAccount.Text = "Thêm";
             this.btnAddAccount.UseVisualStyleBackColor = true;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label13.Location = new System.Drawing.Point(865, 37);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(259, 26);
-            this.label13.TabIndex = 5;
-            this.label13.Text = "THÔNG TIN CHI TIẾT";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label14.Location = new System.Drawing.Point(865, 37);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(259, 26);
-            this.label14.TabIndex = 6;
-            this.label14.Text = "THÔNG TIN CHI TIẾT";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label15.Location = new System.Drawing.Point(865, 37);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(259, 26);
-            this.label15.TabIndex = 6;
-            this.label15.Text = "THÔNG TIN CHI TIẾT";
+            this.btnAddAccount.Click += new System.EventHandler(this.btnAddAccount_Click);
             // 
             // fAdmin
             // 
