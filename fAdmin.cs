@@ -109,7 +109,7 @@ namespace CoffeeShopManager
                 Category category = new Category(item);
                 listCategory.Add(category);
             }
-
+            
             cbFoodCategory.DataSource = listCategory;
             cbFoodCategory.DisplayMember = "Name";
         }
@@ -167,6 +167,30 @@ namespace CoffeeShopManager
             SqlConnection connection = new SqlConnection(connectSTR);
             connection.Open();
             string query = "UPDATE Food SET name = N'" + food_name + "', price = "+ food_price + ", idCategory = "+ category_id + " WHERE id = " + food_id;
+            SqlCommand command = new SqlCommand(query, connection);
+            int result = 0;
+            result = (int)command.ExecuteNonQuery();
+            connection.Close();
+            return result > 0;
+        }
+        bool DeleteBillInfoByIdFood(int food_id)
+        {
+            string connectSTR = @"Data Source=.\sqlexpress;Initial Catalog=Coffee_Shop_Manager;Integrated Security=True";
+            SqlConnection connection = new SqlConnection(connectSTR);
+            connection.Open();
+            string query = "DELETE BillInfo WHERE idFood = " + food_id;
+            SqlCommand command = new SqlCommand(query, connection);
+            int result = 0;
+            result = (int)command.ExecuteNonQuery();
+            connection.Close();
+            return result > 0;
+        }
+        bool DeleteFood(int food_id)
+        {
+            string connectSTR = @"Data Source=.\sqlexpress;Initial Catalog=Coffee_Shop_Manager;Integrated Security=True";
+            SqlConnection connection = new SqlConnection(connectSTR);
+            connection.Open();
+            string query = "DELETE Food WHERE id = " + food_id;
             SqlCommand command = new SqlCommand(query, connection);
             int result = 0;
             result = (int)command.ExecuteNonQuery();
@@ -239,6 +263,30 @@ namespace CoffeeShopManager
             connection.Close();
             return result > 0;
         }
+        bool DeleteFoodByIdCategory(int category_id)
+        {
+            string connectSTR = @"Data Source=.\sqlexpress;Initial Catalog=Coffee_Shop_Manager;Integrated Security=True";
+            SqlConnection connection = new SqlConnection(connectSTR);
+            connection.Open();
+            string query = "EXEC USP_DeleteFoodByIdCategory " + category_id;
+            SqlCommand command = new SqlCommand(query, connection);
+            int result = 0;
+            result = (int)command.ExecuteNonQuery();
+            connection.Close();
+            return result > 0;
+        }
+        bool DeleteCategory(int category_id)
+        {
+            string connectSTR = @"Data Source=.\sqlexpress;Initial Catalog=Coffee_Shop_Manager;Integrated Security=True";
+            SqlConnection connection = new SqlConnection(connectSTR);
+            connection.Open();
+            string query = "DELETE CategoryFood WHERE id = " + category_id;
+            SqlCommand command = new SqlCommand(query, connection);
+            int result = 0;
+            result = (int)command.ExecuteNonQuery();
+            connection.Close();
+            return result > 0;
+        }
         #endregion
 
         //TABLE
@@ -300,6 +348,30 @@ namespace CoffeeShopManager
             SqlConnection connection = new SqlConnection(connectSTR);
             connection.Open();
             string query = "UPDATE TableFood SET name = N'" + table_name + "', status = N'" + table_status + "' WHERE id = " + table_id;
+            SqlCommand command = new SqlCommand(query, connection);
+            int result = 0;
+            result = (int)command.ExecuteNonQuery();
+            connection.Close();
+            return result > 0;
+        }
+        bool DeleteBillByIdTable(int table_id)
+        {
+            string connectSTR = @"Data Source=.\sqlexpress;Initial Catalog=Coffee_Shop_Manager;Integrated Security=True";
+            SqlConnection connection = new SqlConnection(connectSTR);
+            connection.Open();
+            string query = "EXEC USP_DeleteBillIdTable " + table_id;
+            SqlCommand command = new SqlCommand(query, connection);
+            int result = 0;
+            result = (int)command.ExecuteNonQuery();
+            connection.Close();
+            return result > 0;
+        }
+        bool DeleteTable(int table_id)
+        {
+            string connectSTR = @"Data Source=.\sqlexpress;Initial Catalog=Coffee_Shop_Manager;Integrated Security=True";
+            SqlConnection connection = new SqlConnection(connectSTR);
+            connection.Open();
+            string query = "DELETE TableFood WHERE id = " + table_id;
             SqlCommand command = new SqlCommand(query, connection);
             int result = 0;
             result = (int)command.ExecuteNonQuery();
@@ -459,6 +531,12 @@ namespace CoffeeShopManager
             add { updateFoodEvent += value; }
             remove { updateFoodEvent -= value; }
         }
+        private event EventHandler deleteFoodEvent;
+        public event EventHandler DeleteFoodEvent
+        {
+            add { deleteFoodEvent += value; }
+            remove { deleteFoodEvent -= value; }
+        }
         private void btnAddFood_Click(object sender, EventArgs e)
         {
             string food_name = txtFoodName.Text;
@@ -478,6 +556,7 @@ namespace CoffeeShopManager
                     insertFoodEvent(this, new EventArgs());
                 }
                 LoadListFood();
+                LoadListCategoryFood();
             }
             else
             {
@@ -497,6 +576,7 @@ namespace CoffeeShopManager
                 {
                     updateFoodEvent(this, new EventArgs());
                 }
+                LoadListFood();
                 LoadListCategoryFood();
             }
             else
@@ -504,6 +584,32 @@ namespace CoffeeShopManager
                 MessageBox.Show("Cập nhật món ăn KHÔNG thành công !!!", "Báo lỗi!");
             }
         }
+        private void btnDelFood_Click(object sender, EventArgs e)
+        {
+            int food_id = int.Parse(txtFoodID.Text);
+            string food_name = txtFoodName.Text;
+            if (!DeleteBillInfoByIdFood(food_id))
+            {
+                MessageBox.Show("Xóa món ăn KHÔNG thành công !!!", "Báo lỗi!");
+                return;
+            }
+            if(DeleteFood(food_id))
+            {
+                MessageBox.Show("Xóa món '" + food_name + "' thành công !!!", "Thông báo !");
+                if (deleteFoodEvent != null)
+                {
+                    deleteFoodEvent(this, new EventArgs());
+                }
+                LoadListFood();
+                LoadListCategoryFood();
+                LoadListTableFood();
+            }
+            else
+            {
+                MessageBox.Show("Xóa món ăn KHÔNG thành công !!!", "Báo lỗi!");
+            }
+        }
+
         #endregion
 
         //CATEGORY
@@ -519,6 +625,12 @@ namespace CoffeeShopManager
         {
             add { updateCategoryFoodEvent += value; }
             remove { updateCategoryFoodEvent -= value; }
+        }
+        private event EventHandler deleteCategoryFoodEvent;
+        public event EventHandler DeleteCategoryFoodEvent
+        {
+            add { deleteCategoryFoodEvent += value; }
+            remove { deleteCategoryFoodEvent -= value; }
         }
         private void btnShowCategory_Click(object sender, EventArgs e)
         {
@@ -569,25 +681,31 @@ namespace CoffeeShopManager
         private void btnDelCategory_Click(object sender, EventArgs e)
         {
             int category_id = int.Parse(txtCategoryId.Text);
-            MessageBox.Show("Xóa danh mục '" + txtCategoryName.Text + "' !!!", "Thông báo !");
-            /*if (DeleteCategory(category_id))
+            if (!DeleteFoodByIdCategory(category_id))
+            {
+                MessageBox.Show("Xóa danh mục KHÔNG thành công !!!", "Báo lỗi!");
+                return;
+            }
+            if (DeleteCategory(category_id))
             {
                 MessageBox.Show("Xóa danh mục '" + txtCategoryName.Text + "' thành công !!!", "Thông báo !");
                 if (deleteCategoryFoodEvent != null)
                 {
                     deleteCategoryFoodEvent(this, new EventArgs());
                 }
+                LoadListFood();
                 LoadListCategoryFood();
+                LoadListTableFood();
             }
             else
             {
                 MessageBox.Show("Xóa danh mục KHÔNG thành công !!!", "Báo lỗi!");
-            }*/
+            }
         }
         #endregion
 
         //TABLE
-        #region
+        #region TableEvents
         private event EventHandler insertTableFoodEvent;
         public event EventHandler InsertTableFoodEvent
         {
@@ -599,6 +717,12 @@ namespace CoffeeShopManager
         {
             add { updateTableFoodEvent += value; }
             remove { updateTableFoodEvent -= value; }
+        }
+        private event EventHandler deleteTableFoodEvent;
+        public event EventHandler DeleteTableFoodEvent
+        {
+            add { deleteTableFoodEvent += value; }
+            remove { deleteTableFoodEvent -= value; }
         }
         private void btnShowTable_Click(object sender, EventArgs e)
         {
@@ -640,11 +764,34 @@ namespace CoffeeShopManager
                 {
                     updateTableFoodEvent(this, new EventArgs());
                 }
-                LoadListCategoryFood();
+                LoadListTableFood();
             }
             else
             {
                 MessageBox.Show("Cập nhật bàn ăn KHÔNG thành công !!!", "Báo lỗi!");
+            }
+        }
+        private void btnDeltable_Click(object sender, EventArgs e)
+        {
+            int table_id = int.Parse(txtTableID.Text);
+            string table_name = txtFoodName.Text;
+            if (!DeleteBillByIdTable(table_id))
+            {
+                MessageBox.Show("Xóa bàn ăn KHÔNG thành công !!!", "Báo lỗi!");
+                return;
+            }
+            if(DeleteTable(table_id))
+            {
+                MessageBox.Show("Xóa bàn '" + table_name + "' thành công !!!", "Thông báo !");
+                if (deleteTableFoodEvent != null)
+                {
+                    deleteTableFoodEvent(this, new EventArgs());
+                }
+                LoadListTableFood();
+            }
+            else
+            {
+                MessageBox.Show("Xóa bàn ăn KHÔNG thành công !!!", "Báo lỗi!");
             }
         }
         #endregion
@@ -749,12 +896,6 @@ namespace CoffeeShopManager
             }
         }
 
-
-
-
-
         #endregion
-
-        
     }
 }

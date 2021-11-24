@@ -128,13 +128,17 @@ namespace CoffeeShopManager
             adapter.Fill(data);
             connection.Close();
             List<Food> listFood = new List<Food>();
-            foreach (DataRow item in data.Rows)
+            if(data.Rows.Count > 0)
             {
-                Food food = new Food(item);
-                listFood.Add(food);
+                foreach (DataRow item in data.Rows)
+                {
+                    Food food = new Food(item);
+                    listFood.Add(food);
+                }
+                cbFood.DataSource = listFood;
+                cbFood.DisplayMember = "Name";
             }
-            cbFood.DataSource = listFood;
-            cbFood.DisplayMember = "Name";
+            else cbFood.DataSource = null;
         }
         int getIdBillUnCheckOutByIdTable(int idTable)
         {
@@ -257,12 +261,38 @@ namespace CoffeeShopManager
             f.UpdateAccountEvent += f_UpdateAccountEvent;
             f.InsertCategoryFooodEvent += f_InsertCategoryFooodEvent;
             f.UpdateCategoryFoodEvent += f_UpdateCategoryFoodEvent;
+            f.DeleteCategoryFoodEvent += f_DeleteCategoryFoodEvent;
             f.InsertTableFoodEvent += f_InsertTableFoodEvent;
             f.UpdateTableFoodEvent += f_UpdateTableFoodEvent;
+            f.DeleteTableFoodEvent += f_DeleteTableFoodEvent;
             f.InsertFoodEvent += f_InsertFoodEvent;
             f.UpdateFoodEvent += f_UpdateFoodEvent;
+            f.DeleteFoodEvent += f_DeleteFoodEvent;
             f.loginAccount = LoginAccount;
             f.ShowDialog();
+        }
+
+        private void f_DeleteCategoryFoodEvent(object sender, EventArgs e)
+        {
+            loadListCategoryFoodNameOnComboBox();
+            if (lsvBill.Tag != null)
+                ShowBill((lsvBill.Tag as Table).ID);
+            LoadListTable();
+        }
+
+        private void f_DeleteTableFoodEvent(object sender, EventArgs e)
+        {
+            if (lsvBill.Tag != null)
+                ShowBill((lsvBill.Tag as Table).ID);
+            LoadListTable();
+        }
+
+        private void f_DeleteFoodEvent(object sender, EventArgs e)
+        {
+            loadListCategoryFoodNameOnComboBox();
+            if (lsvBill.Tag != null)
+                ShowBill((lsvBill.Tag as Table).ID);
+            LoadListTable();
         }
 
         private void f_UpdateFoodEvent(object sender, EventArgs e)
@@ -365,23 +395,31 @@ namespace CoffeeShopManager
                 MessageBox.Show("Vui lòng chọn bàn trước khi thêm món","Cảnh báo !");
                 return;
             }
-            int idFood = (cbFood.SelectedItem as Food).Id;
-            string categoryFoodName = cbCategoryFood.Text;
-            int count = (int)nmCount.Value;
-            int idBill = getIdBillUnCheckOutByIdTable(tableClicked.ID);
-            if(idBill == -1)
+            
+            if(cbFood.SelectedItem as Food != null)
             {
-                //tao bill moi
-                InsertBill(tableClicked.ID);
-                //them bill info
-                int idBillMax = getIdBillUnCheckOutByIdTable(tableClicked.ID);
-                InsertBillInfo(idBillMax, idFood, count);
-                MessageBox.Show("Thêm " + count + " món '" + (cbFood.SelectedItem as Food).Name + "' vào bàn " + tableClicked.Name + "\n Thành công !!!");
+                int idFood = (cbFood.SelectedItem as Food).Id;
+                string categoryFoodName = cbCategoryFood.Text;
+                int count = (int)nmCount.Value;
+                int idBill = getIdBillUnCheckOutByIdTable(tableClicked.ID);
+                if (idBill == -1)
+                {
+                    //tao bill moi
+                    InsertBill(tableClicked.ID);
+                    //them bill info
+                    int idBillMax = getIdBillUnCheckOutByIdTable(tableClicked.ID);
+                    InsertBillInfo(idBillMax, idFood, count);
+                    MessageBox.Show("Thêm " + count + " món '" + (cbFood.SelectedItem as Food).Name + "' vào bàn " + tableClicked.Name + "\n Thành công !!!");
+                }
+                else
+                {
+                    InsertBillInfo(idBill, idFood, count);
+                    MessageBox.Show("Thêm " + count + " món '" + (cbFood.SelectedItem as Food).Name + "' vào bàn " + tableClicked.Name + "\n Thành công !!!");
+                }
             }
             else
             {
-                InsertBillInfo(idBill, idFood, count);
-                MessageBox.Show("Thêm " + count + " món '" + (cbFood.SelectedItem as Food).Name + "' vào bàn " + tableClicked.Name + "\n Thành công !!!");
+                MessageBox.Show("Thêm món vào bàn " + tableClicked.Name + " KHÔNG thành công !!!", "Báo lỗi !");
             }
             ShowBill(tableClicked.ID);
             LoadListTable();

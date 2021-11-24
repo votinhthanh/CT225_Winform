@@ -467,6 +467,7 @@ namespace CoffeeShopManager
             this.btnDelFood.TabIndex = 3;
             this.btnDelFood.Text = "Xóa";
             this.btnDelFood.UseVisualStyleBackColor = true;
+            this.btnDelFood.Click += new System.EventHandler(this.btnDelFood_Click);
             // 
             // btnEditFood
             // 
@@ -822,6 +823,7 @@ namespace CoffeeShopManager
             this.btnDeltable.TabIndex = 3;
             this.btnDeltable.Text = "Xóa";
             this.btnDeltable.UseVisualStyleBackColor = true;
+            this.btnDeltable.Click += new System.EventHandler(this.btnDeltable_Click);
             // 
             // btnAddTable
             // 
