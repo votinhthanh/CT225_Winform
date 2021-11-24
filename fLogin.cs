@@ -88,32 +88,32 @@ namespace CoffeeShopManager
             {
                 Application.Exit();
             }
-            /*SỰ KIÊN ĐÓNG FORM*/
-            private void Login_FormClosing(object sender, FormClosingEventArgs e)
+        /*SỰ KIÊN ĐÓNG FORM*/
+        private void Login_FormClosing(object sender, FormClosingEventArgs e)
             {
                 if(MessageBox.Show("Bạn có thật sự muốn thoát không ?", "Cảnh báo !", MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
                 {
                     e.Cancel = true;
                 }
             }
-            /*SỰ KIÊN ÂN BUTTON "LOGIN"*/
-            private void btnLogin_Click(object sender, EventArgs e)
-            {
-                string username = txtUserName.Text;
-                string password = txtPassWord.Text;
+        /*SỰ KIÊN ÂN BUTTON "LOGIN"*/
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            string username = txtUserName.Text;
+            string password = EncodingPassword(txtPassWord.Text);
             if (Login(username, password))
             {
                 Account loginAccount = getAccountByUserName(username);
                 fTableManager f = new fTableManager(loginAccount);
-                    this.Hide();
-                    f.ShowDialog();
-                    this.Show();
-                }
-                else
-                {
-                    MessageBox.Show("Đăng nhập không thành công \nBạn vui lòng kiểm tra Tên đăng nhập/Mật khẩu.", "Thông báo lỗi !", MessageBoxButtons.OK);
-                }   
-            }            
+                this.Hide();
+                f.ShowDialog();
+                this.Show();
+            }
+            else
+            {
+                MessageBox.Show("Đăng nhập không thành công \nBạn vui lòng kiểm tra Tên đăng nhập/Mật khẩu.", "Thông báo lỗi !", MessageBoxButtons.OK);
+            }   
+        }            
         #endregion
 
     }

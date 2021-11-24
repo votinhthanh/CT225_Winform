@@ -418,9 +418,22 @@ namespace CoffeeShopManager
             }
             return null;
         }
+        public string EncodingPassword(string pass_input)
+        {
+            byte[] temp = ASCIIEncoding.ASCII.GetBytes(pass_input);
+            byte[] hasData = new MD5CryptoServiceProvider().ComputeHash(temp);
+            String pass = "";
+            foreach (byte item in hasData)
+            {
+                pass += item;
+            }
+            char[] arr = pass.ToCharArray(); // chuỗi thành mảng ký tự
+            Array.Reverse(arr); // đảo ngược mảng
+            return new string(arr);
+        }
         bool InsertAccount(string username, string displayname, int type)
         {
-            string password_new = "0";
+            string password_new = EncodingPassword("0");
             string connectSTR = @"Data Source=.\sqlexpress;Initial Catalog=Coffee_Shop_Manager;Integrated Security=True";
             SqlConnection connection = new SqlConnection(connectSTR);
             connection.Open();
@@ -457,7 +470,7 @@ namespace CoffeeShopManager
         }
         bool ResetPasswordAccount(string username)
         {
-            string password = "0";
+            string password = EncodingPassword("0");
             string connectSTR = @"Data Source=.\sqlexpress;Initial Catalog=Coffee_Shop_Manager;Integrated Security=True";
             SqlConnection connection = new SqlConnection(connectSTR);
             connection.Open();
