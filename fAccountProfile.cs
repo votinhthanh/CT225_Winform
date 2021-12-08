@@ -61,7 +61,11 @@ namespace CoffeeShopManager
             {
                 query += "UPDATE Account SET DisplayName = N'" + displayName + "' WHERE UserName = N'" + username + "' AND PassWord = N'" + password + "'";
             }
-            else query = "UPDATE Account SET DisplayName = N'"+ displayName+"', PassWord = N'"+ newpass + "' WHERE UserName = N'" + username + "' AND PassWord = N'" + password + "'";
+            else
+            {
+                newpass = EncodingPassword(newpass);
+                query = "UPDATE Account SET DisplayName = N'" + displayName + "', PassWord = N'" + newpass + "' WHERE UserName = N'" + username + "' AND PassWord = N'" + password + "'";
+            }
             SqlCommand command = new SqlCommand(query, connection);
             int result = 0;
 
@@ -115,7 +119,7 @@ namespace CoffeeShopManager
                 MessageBox.Show("Xác thực mật khẩu mới KHÔNG thành công !!!", "Báo lỗi !");
                 return;
             }
-            if (UpdateAccount(username, display_name, current_password, EncodingPassword(new_password)))
+            if (UpdateAccount(username, display_name, current_password, new_password))
             {
                 MessageBox.Show("Cập nhật tài khoản thành công !!!", "Thông báo !");
                 if (updateAccountEvent != null)
