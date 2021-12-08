@@ -242,7 +242,7 @@ namespace CoffeeShopManager
             this.Controls.Add(this.panel1);
             this.Name = "fAccountProfile";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "fAccountProfile";
+            this.Text = "Thông tin cá nhân";
             this.pnlPass.ResumeLayout(false);
             this.pnlPass.PerformLayout();
             this.pnlUserName.ResumeLayout(false);

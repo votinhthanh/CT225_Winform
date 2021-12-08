@@ -161,7 +161,24 @@ namespace CoffeeShopManager
             }
             return -1;
         }
-        
+
+        int getFoodInBillUncheck(int idFood, int idBill)
+        {
+            string connectSTR = @"Data Source=.\sqlexpress;Initial Catalog=Coffee_Shop_Manager;Integrated Security=True";
+
+            SqlConnection connection = new SqlConnection(connectSTR);
+
+            connection.Open();
+
+            string query = "SELECT * FROM BillInfo WHERE idFood = "+ idFood + " AND idBill = " + idBill;
+            SqlCommand command = new SqlCommand(query, connection);
+            DataTable data = new DataTable();
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(data);
+            connection.Close();
+            return data.Rows.Count;
+        }
+
         public bool InsertBill(int idTable)
         {
             string connectSTR = @"Data Source=.\sqlexpress;Initial Catalog=Coffee_Shop_Manager;Integrated Security=True";
@@ -404,6 +421,11 @@ namespace CoffeeShopManager
                 int idBill = getIdBillUnCheckOutByIdTable(tableClicked.ID);
                 if (idBill == -1)
                 {
+                    if(count <= 0)
+                    {
+                        MessageBox.Show("Không thể thêm món có số lượng nhỏ hơn 0 vào bàn", "Báo lỗi !");
+                        return;
+                    }
                     //tao bill moi
                     InsertBill(tableClicked.ID);
                     //them bill info
@@ -413,6 +435,11 @@ namespace CoffeeShopManager
                 }
                 else
                 {
+                    if((getFoodInBillUncheck(idFood, idBill) == 0) && (count <= 0))
+                    {
+                        MessageBox.Show("Không thể thêm món có số lượng nhỏ hơn 0 vào bàn", "Báo lỗi !");
+                        return;
+                    }
                     InsertBillInfo(idBill, idFood, count);
                     MessageBox.Show("Thêm " + count + " món '" + (cbFood.SelectedItem as Food).Name + "' vào bàn " + tableClicked.Name + "\n Thành công !!!");
                 }

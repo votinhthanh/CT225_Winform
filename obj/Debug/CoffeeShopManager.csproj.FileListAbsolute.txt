@@ -37,3 +37,17 @@ D:\Project\CT251_windowsForm\obj\Debug\CoffeeShopManager.csproj.GenerateResource
 D:\Project\CT251_windowsForm\obj\Debug\CoffeeShopManager.csproj.CoreCompileInputs.cache
 D:\Project\CT251_windowsForm\obj\Debug\CoffeeShopManager.exe
 D:\Project\CT251_windowsForm\obj\Debug\CoffeeShopManager.pdb
+D:\NamTu\CT251_WD\Project\DoAnCT251\bin\Debug\CoffeeShopManager.exe.config
+D:\NamTu\CT251_WD\Project\DoAnCT251\bin\Debug\CoffeeShopManager.exe
+D:\NamTu\CT251_WD\Project\DoAnCT251\bin\Debug\CoffeeShopManager.pdb
+D:\NamTu\CT251_WD\Project\DoAnCT251\obj\Debug\CoffeeShopManager.csproj.AssemblyReference.cache
+D:\NamTu\CT251_WD\Project\DoAnCT251\obj\Debug\CoffeeShopManager.fAccountProfile.resources
+D:\NamTu\CT251_WD\Project\DoAnCT251\obj\Debug\CoffeeShopManager.fAdmin.resources
+D:\NamTu\CT251_WD\Project\DoAnCT251\obj\Debug\CoffeeShopManager.fChangeTable.resources
+D:\NamTu\CT251_WD\Project\DoAnCT251\obj\Debug\CoffeeShopManager.fTableManager.resources
+D:\NamTu\CT251_WD\Project\DoAnCT251\obj\Debug\CoffeeShopManager.fLogin.resources
+D:\NamTu\CT251_WD\Project\DoAnCT251\obj\Debug\CoffeeShopManager.Properties.Resources.resources
+D:\NamTu\CT251_WD\Project\DoAnCT251\obj\Debug\CoffeeShopManager.csproj.GenerateResource.cache
+D:\NamTu\CT251_WD\Project\DoAnCT251\obj\Debug\CoffeeShopManager.csproj.CoreCompileInputs.cache
+D:\NamTu\CT251_WD\Project\DoAnCT251\obj\Debug\CoffeeShopManager.exe
+D:\NamTu\CT251_WD\Project\DoAnCT251\obj\Debug\CoffeeShopManager.pdb

@@ -101,6 +101,7 @@ namespace CoffeeShopManager
         {
             string username = txtUserName.Text;
             string password = EncodingPassword(txtPassWord.Text);
+            //MessageBox.Show("password = " + password, "thong báo");
             if (Login(username, password))
             {
                 Account loginAccount = getAccountByUserName(username);

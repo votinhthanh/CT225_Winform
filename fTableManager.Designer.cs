@@ -316,6 +316,7 @@ namespace CoffeeShopManager
             this.txtTotalPrice.ForeColor = System.Drawing.Color.Red;
             this.txtTotalPrice.Location = new System.Drawing.Point(341, 4);
             this.txtTotalPrice.Name = "txtTotalPrice";
+            this.txtTotalPrice.ReadOnly = true;
             this.txtTotalPrice.Size = new System.Drawing.Size(274, 34);
             this.txtTotalPrice.TabIndex = 8;
             this.txtTotalPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
