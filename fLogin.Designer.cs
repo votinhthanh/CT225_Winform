@@ -58,7 +58,7 @@ namespace CoffeeShopManager
             // 
             this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnExit.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(394, 267);
+            this.btnExit.Location = new System.Drawing.Point(394, 327);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(107, 40);
             this.btnExit.TabIndex = 4;
@@ -69,7 +69,7 @@ namespace CoffeeShopManager
             // btnLogin
             // 
             this.btnLogin.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Location = new System.Drawing.Point(219, 267);
+            this.btnLogin.Location = new System.Drawing.Point(219, 327);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(107, 40);
             this.btnLogin.TabIndex = 3;
@@ -81,7 +81,7 @@ namespace CoffeeShopManager
             // 
             this.pnlPass.Controls.Add(this.txtPassWord);
             this.pnlPass.Controls.Add(this.passWord);
-            this.pnlPass.Location = new System.Drawing.Point(98, 169);
+            this.pnlPass.Location = new System.Drawing.Point(98, 241);
             this.pnlPass.Name = "pnlPass";
             this.pnlPass.Size = new System.Drawing.Size(531, 58);
             this.pnlPass.TabIndex = 2;
@@ -109,7 +109,7 @@ namespace CoffeeShopManager
             // 
             this.pnlUserName.Controls.Add(this.txtUserName);
             this.pnlUserName.Controls.Add(this.userName);
-            this.pnlUserName.Location = new System.Drawing.Point(98, 83);
+            this.pnlUserName.Location = new System.Drawing.Point(98, 155);
             this.pnlUserName.Name = "pnlUserName";
             this.pnlUserName.Size = new System.Drawing.Size(531, 58);
             this.pnlUserName.TabIndex = 0;

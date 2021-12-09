@@ -280,14 +280,14 @@ namespace CoffeeShopManager
             // nmFoodPrice
             // 
             this.nmFoodPrice.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nmFoodPrice.Location = new System.Drawing.Point(172, 18);
+            this.nmFoodPrice.Location = new System.Drawing.Point(157, 18);
             this.nmFoodPrice.Maximum = new decimal(new int[] {
             1000000,
             0,
             0,
             0});
             this.nmFoodPrice.Name = "nmFoodPrice";
-            this.nmFoodPrice.Size = new System.Drawing.Size(261, 34);
+            this.nmFoodPrice.Size = new System.Drawing.Size(286, 34);
             this.nmFoodPrice.TabIndex = 1;
             // 
             // label4
@@ -296,9 +296,9 @@ namespace CoffeeShopManager
             this.label4.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(4, 21);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 27);
+            this.label4.Size = new System.Drawing.Size(52, 27);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Price:";
+            this.label4.Text = "Giá:";
             // 
             // panel8
             // 
@@ -313,9 +313,9 @@ namespace CoffeeShopManager
             // 
             this.cbFoodCategory.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbFoodCategory.FormattingEnabled = true;
-            this.cbFoodCategory.Location = new System.Drawing.Point(172, 18);
+            this.cbFoodCategory.Location = new System.Drawing.Point(157, 18);
             this.cbFoodCategory.Name = "cbFoodCategory";
-            this.cbFoodCategory.Size = new System.Drawing.Size(261, 34);
+            this.cbFoodCategory.Size = new System.Drawing.Size(286, 34);
             this.cbFoodCategory.TabIndex = 1;
             // 
             // label3
@@ -324,9 +324,9 @@ namespace CoffeeShopManager
             this.label3.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(4, 21);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(106, 27);
+            this.label3.Size = new System.Drawing.Size(155, 27);
             this.label3.TabIndex = 0;
-            this.label3.Text = "Category:";
+            this.label3.Text = "Tên danh mục:";
             // 
             // panel6
             // 
@@ -340,9 +340,9 @@ namespace CoffeeShopManager
             // txtFoodName
             // 
             this.txtFoodName.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFoodName.Location = new System.Drawing.Point(172, 18);
+            this.txtFoodName.Location = new System.Drawing.Point(157, 18);
             this.txtFoodName.Name = "txtFoodName";
-            this.txtFoodName.Size = new System.Drawing.Size(261, 34);
+            this.txtFoodName.Size = new System.Drawing.Size(286, 34);
             this.txtFoodName.TabIndex = 8;
             // 
             // label2
@@ -351,9 +351,9 @@ namespace CoffeeShopManager
             this.label2.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(4, 21);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(125, 27);
+            this.label2.Size = new System.Drawing.Size(132, 27);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Food name:";
+            this.label2.Text = "Tên món ăn:";
             // 
             // panel4
             // 
@@ -367,10 +367,10 @@ namespace CoffeeShopManager
             // txtFoodID
             // 
             this.txtFoodID.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFoodID.Location = new System.Drawing.Point(172, 18);
+            this.txtFoodID.Location = new System.Drawing.Point(157, 18);
             this.txtFoodID.Name = "txtFoodID";
             this.txtFoodID.ReadOnly = true;
-            this.txtFoodID.Size = new System.Drawing.Size(261, 34);
+            this.txtFoodID.Size = new System.Drawing.Size(286, 34);
             this.txtFoodID.TabIndex = 7;
             this.txtFoodID.TextChanged += new System.EventHandler(this.txtFoodID_TextChanged);
             // 
@@ -380,9 +380,9 @@ namespace CoffeeShopManager
             this.label1.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(4, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 27);
+            this.label1.Size = new System.Drawing.Size(127, 27);
             this.label1.TabIndex = 0;
-            this.label1.Text = "ID:";
+            this.label1.Text = "Mã món ăn:";
             // 
             // panel7
             // 
@@ -537,9 +537,9 @@ namespace CoffeeShopManager
             // txtCategoryName
             // 
             this.txtCategoryName.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCategoryName.Location = new System.Drawing.Point(172, 18);
+            this.txtCategoryName.Location = new System.Drawing.Point(157, 18);
             this.txtCategoryName.Name = "txtCategoryName";
-            this.txtCategoryName.Size = new System.Drawing.Size(251, 34);
+            this.txtCategoryName.Size = new System.Drawing.Size(286, 34);
             this.txtCategoryName.TabIndex = 8;
             // 
             // label7
@@ -548,9 +548,9 @@ namespace CoffeeShopManager
             this.label7.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(4, 21);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(164, 27);
+            this.label7.Size = new System.Drawing.Size(155, 27);
             this.label7.TabIndex = 0;
-            this.label7.Text = "Category name:";
+            this.label7.Text = "Tên danh mục:";
             // 
             // panel14
             // 
@@ -564,10 +564,10 @@ namespace CoffeeShopManager
             // txtCategoryId
             // 
             this.txtCategoryId.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCategoryId.Location = new System.Drawing.Point(172, 18);
+            this.txtCategoryId.Location = new System.Drawing.Point(157, 18);
             this.txtCategoryId.Name = "txtCategoryId";
             this.txtCategoryId.ReadOnly = true;
-            this.txtCategoryId.Size = new System.Drawing.Size(251, 34);
+            this.txtCategoryId.Size = new System.Drawing.Size(286, 34);
             this.txtCategoryId.TabIndex = 7;
             // 
             // label8
@@ -576,9 +576,9 @@ namespace CoffeeShopManager
             this.label8.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(4, 21);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(43, 27);
+            this.label8.Size = new System.Drawing.Size(150, 27);
             this.label8.TabIndex = 0;
-            this.label8.Text = "ID:";
+            this.label8.Text = "Mã danh mục:";
             // 
             // panel16
             // 
@@ -702,9 +702,9 @@ namespace CoffeeShopManager
             // txtTableStatus
             // 
             this.txtTableStatus.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTableStatus.Location = new System.Drawing.Point(172, 14);
+            this.txtTableStatus.Location = new System.Drawing.Point(157, 18);
             this.txtTableStatus.Name = "txtTableStatus";
-            this.txtTableStatus.Size = new System.Drawing.Size(272, 34);
+            this.txtTableStatus.Size = new System.Drawing.Size(286, 34);
             this.txtTableStatus.TabIndex = 9;
             // 
             // label6
@@ -713,9 +713,9 @@ namespace CoffeeShopManager
             this.label6.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(4, 21);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(76, 27);
+            this.label6.Size = new System.Drawing.Size(158, 27);
             this.label6.TabIndex = 0;
-            this.label6.Text = "Status:";
+            this.label6.Text = "Tình trạng bàn:";
             // 
             // panel18
             // 
@@ -729,9 +729,9 @@ namespace CoffeeShopManager
             // txtTableName
             // 
             this.txtTableName.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTableName.Location = new System.Drawing.Point(172, 14);
+            this.txtTableName.Location = new System.Drawing.Point(157, 18);
             this.txtTableName.Name = "txtTableName";
-            this.txtTableName.Size = new System.Drawing.Size(272, 34);
+            this.txtTableName.Size = new System.Drawing.Size(286, 34);
             this.txtTableName.TabIndex = 8;
             // 
             // label9
@@ -740,9 +740,9 @@ namespace CoffeeShopManager
             this.label9.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(4, 21);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(128, 27);
+            this.label9.Size = new System.Drawing.Size(125, 27);
             this.label9.TabIndex = 0;
-            this.label9.Text = "Table name:";
+            this.label9.Text = "Tên bàn ăn:";
             // 
             // panel19
             // 
@@ -756,10 +756,10 @@ namespace CoffeeShopManager
             // txtTableID
             // 
             this.txtTableID.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTableID.Location = new System.Drawing.Point(172, 14);
+            this.txtTableID.Location = new System.Drawing.Point(157, 18);
             this.txtTableID.Name = "txtTableID";
             this.txtTableID.ReadOnly = true;
-            this.txtTableID.Size = new System.Drawing.Size(272, 34);
+            this.txtTableID.Size = new System.Drawing.Size(286, 34);
             this.txtTableID.TabIndex = 7;
             // 
             // label10
@@ -768,9 +768,9 @@ namespace CoffeeShopManager
             this.label10.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(4, 21);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(43, 27);
+            this.label10.Size = new System.Drawing.Size(91, 27);
             this.label10.TabIndex = 0;
-            this.label10.Text = "ID:";
+            this.label10.Text = "Mã bàn:";
             // 
             // panel21
             // 
@@ -906,9 +906,9 @@ namespace CoffeeShopManager
             // txtAccountType
             // 
             this.txtAccountType.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAccountType.Location = new System.Drawing.Point(172, 14);
+            this.txtAccountType.Location = new System.Drawing.Point(157, 14);
             this.txtAccountType.Name = "txtAccountType";
-            this.txtAccountType.Size = new System.Drawing.Size(261, 33);
+            this.txtAccountType.Size = new System.Drawing.Size(286, 33);
             this.txtAccountType.TabIndex = 9;
             // 
             // label5
@@ -933,9 +933,9 @@ namespace CoffeeShopManager
             // txtDisplayName
             // 
             this.txtDisplayName.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDisplayName.Location = new System.Drawing.Point(172, 18);
+            this.txtDisplayName.Location = new System.Drawing.Point(157, 18);
             this.txtDisplayName.Name = "txtDisplayName";
-            this.txtDisplayName.Size = new System.Drawing.Size(261, 33);
+            this.txtDisplayName.Size = new System.Drawing.Size(286, 33);
             this.txtDisplayName.TabIndex = 8;
             // 
             // label11
@@ -960,9 +960,10 @@ namespace CoffeeShopManager
             // txtUserName
             // 
             this.txtUserName.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUserName.Location = new System.Drawing.Point(172, 18);
+            this.txtUserName.Location = new System.Drawing.Point(157, 18);
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(261, 33);
+            this.txtUserName.ReadOnly = true;
+            this.txtUserName.Size = new System.Drawing.Size(286, 33);
             this.txtUserName.TabIndex = 7;
             // 
             // label12
