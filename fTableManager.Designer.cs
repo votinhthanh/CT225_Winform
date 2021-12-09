@@ -29,6 +29,7 @@ namespace CoffeeShopManager
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fTableManager));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.accountInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -79,10 +80,12 @@ namespace CoffeeShopManager
             // 
             // adminToolStripMenuItem
             // 
+            this.adminToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
             this.adminToolStripMenuItem.Checked = true;
             this.adminToolStripMenuItem.CheckOnClick = true;
             this.adminToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.adminToolStripMenuItem.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.adminToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Window;
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
             this.adminToolStripMenuItem.Size = new System.Drawing.Size(106, 29);
             this.adminToolStripMenuItem.Text = "Quản trị";
@@ -91,27 +94,31 @@ namespace CoffeeShopManager
             // 
             // accountInformationToolStripMenuItem
             // 
+            this.accountInformationToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
             this.accountInformationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.showInformationToolStripMenuItem,
             this.logoutToolStripMenuItem});
             this.accountInformationToolStripMenuItem.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accountInformationToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Window;
             this.accountInformationToolStripMenuItem.Name = "accountInformationToolStripMenuItem";
             this.accountInformationToolStripMenuItem.Size = new System.Drawing.Size(212, 29);
             this.accountInformationToolStripMenuItem.Text = "Thông tin tài khoản";
             // 
             // showInformationToolStripMenuItem
             // 
+            this.showInformationToolStripMenuItem.BackColor = System.Drawing.Color.SkyBlue;
             this.showInformationToolStripMenuItem.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.showInformationToolStripMenuItem.Name = "showInformationToolStripMenuItem";
-            this.showInformationToolStripMenuItem.Size = new System.Drawing.Size(220, 30);
+            this.showInformationToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
             this.showInformationToolStripMenuItem.Text = "Xem thông tin";
             this.showInformationToolStripMenuItem.Click += new System.EventHandler(this.showInformationToolStripMenuItem_Click);
             // 
             // logoutToolStripMenuItem
             // 
+            this.logoutToolStripMenuItem.BackColor = System.Drawing.Color.SkyBlue;
             this.logoutToolStripMenuItem.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(220, 30);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
             this.logoutToolStripMenuItem.Text = "Đăng xuất";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
@@ -180,6 +187,9 @@ namespace CoffeeShopManager
             // button3
             // 
             this.button3.AutoSize = true;
+            this.button3.BackColor = System.Drawing.SystemColors.Control;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -189,13 +199,14 @@ namespace CoffeeShopManager
             this.button3.TabIndex = 9;
             this.button3.Text = "Chọn món ăn:";
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.UseVisualStyleBackColor = false;
             // 
             // button2
             // 
             this.button2.AutoSize = true;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.SystemColors.Window;
+            this.button2.BackColor = System.Drawing.SystemColors.Control;
             this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(9, 3);
             this.button2.Name = "button2";
@@ -203,17 +214,20 @@ namespace CoffeeShopManager
             this.button2.TabIndex = 8;
             this.button2.Text = "Chọn danh mục:";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.SystemColors.Control;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(407, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(99, 33);
             this.button1.TabIndex = 7;
             this.button1.Text = "Số lượng";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // nmCount
             // 
@@ -227,6 +241,7 @@ namespace CoffeeShopManager
             this.nmCount.Name = "nmCount";
             this.nmCount.Size = new System.Drawing.Size(99, 33);
             this.nmCount.TabIndex = 3;
+            this.nmCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nmCount.Value = new decimal(new int[] {
             1,
             0,
@@ -235,7 +250,9 @@ namespace CoffeeShopManager
             // 
             // btnAddFood
             // 
-            this.btnAddFood.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnAddFood.BackColor = System.Drawing.Color.Turquoise;
+            this.btnAddFood.FlatAppearance.BorderSize = 0;
+            this.btnAddFood.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddFood.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddFood.Location = new System.Drawing.Point(512, 3);
             this.btnAddFood.Name = "btnAddFood";
@@ -247,6 +264,7 @@ namespace CoffeeShopManager
             // 
             // cbFood
             // 
+            this.cbFood.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbFood.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbFood.FormattingEnabled = true;
             this.cbFood.Location = new System.Drawing.Point(159, 41);
@@ -256,12 +274,14 @@ namespace CoffeeShopManager
             // 
             // cbCategoryFood
             // 
+            this.cbCategoryFood.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbCategoryFood.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCategoryFood.FormattingEnabled = true;
             this.cbCategoryFood.Location = new System.Drawing.Point(159, 3);
             this.cbCategoryFood.Name = "cbCategoryFood";
             this.cbCategoryFood.Size = new System.Drawing.Size(239, 33);
             this.cbCategoryFood.TabIndex = 0;
+            this.cbCategoryFood.UseWaitCursor = true;
             this.cbCategoryFood.SelectedIndexChanged += new System.EventHandler(this.cbCategoryFood_SelectedIndexChanged);
             // 
             // panel4
@@ -279,6 +299,7 @@ namespace CoffeeShopManager
             // 
             // cbChangeTable
             // 
+            this.cbChangeTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbChangeTable.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbChangeTable.FormattingEnabled = true;
             this.cbChangeTable.Location = new System.Drawing.Point(9, 58);
@@ -288,9 +309,11 @@ namespace CoffeeShopManager
             // 
             // btnCheckOut
             // 
-            this.btnCheckOut.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.btnCheckOut.BackColor = System.Drawing.Color.Turquoise;
+            this.btnCheckOut.FlatAppearance.BorderSize = 0;
+            this.btnCheckOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCheckOut.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCheckOut.Location = new System.Drawing.Point(137, 45);
+            this.btnCheckOut.Location = new System.Drawing.Point(137, 42);
             this.btnCheckOut.Name = "btnCheckOut";
             this.btnCheckOut.Size = new System.Drawing.Size(478, 49);
             this.btnCheckOut.TabIndex = 7;
@@ -300,13 +323,17 @@ namespace CoffeeShopManager
             // 
             // btnChangeTable
             // 
+            this.btnChangeTable.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnChangeTable.FlatAppearance.BorderSize = 0;
+            this.btnChangeTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChangeTable.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangeTable.ForeColor = System.Drawing.SystemColors.Window;
             this.btnChangeTable.Location = new System.Drawing.Point(9, 3);
             this.btnChangeTable.Name = "btnChangeTable";
             this.btnChangeTable.Size = new System.Drawing.Size(122, 54);
             this.btnChangeTable.TabIndex = 8;
             this.btnChangeTable.Text = "Chuyển/gộp bàn ";
-            this.btnChangeTable.UseVisualStyleBackColor = true;
+            this.btnChangeTable.UseVisualStyleBackColor = false;
             this.btnChangeTable.Click += new System.EventHandler(this.btnChangeTable_Click);
             // 
             // txtTotalPrice
@@ -328,17 +355,22 @@ namespace CoffeeShopManager
             this.nmDiscount.Name = "nmDiscount";
             this.nmDiscount.Size = new System.Drawing.Size(98, 34);
             this.nmDiscount.TabIndex = 4;
+            this.nmDiscount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nmDiscount.ValueChanged += new System.EventHandler(this.nmDiscount_ValueChanged);
             // 
             // none
             // 
+            this.none.BackColor = System.Drawing.Color.Salmon;
+            this.none.FlatAppearance.BorderSize = 0;
+            this.none.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.none.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.none.ForeColor = System.Drawing.SystemColors.Window;
             this.none.Location = new System.Drawing.Point(137, 4);
             this.none.Name = "none";
             this.none.Size = new System.Drawing.Size(94, 35);
             this.none.TabIndex = 6;
             this.none.Text = "Giảm giá";
-            this.none.UseVisualStyleBackColor = true;
+            this.none.UseVisualStyleBackColor = false;
             // 
             // flpTable
             // 
@@ -351,12 +383,17 @@ namespace CoffeeShopManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1262, 673);
             this.Controls.Add(this.flpTable);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "fTableManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -74,13 +74,14 @@ namespace CoffeeShopManager
                 switch (item.Status)
                 {
                     case "Trống":
-                        btn.BackColor = Color.Aqua;
+                        btn.BackColor = Color.Turquoise;
                         break;
                     default:
-                        btn.BackColor = Color.IndianRed;
+                        btn.BackColor = Color.SteelBlue;
+                        btn.ForeColor = Color.White;
                         break;
                 }
-                btn.Text = item.Name + Environment.NewLine + item.Status;
+                btn.Text = item.Name.ToUpper() + Environment.NewLine +" " + Environment.NewLine + item.Status.ToUpper();
                 flpTable.Controls.Add(btn);
             }
             cbChangeTable.DataSource = listTable;

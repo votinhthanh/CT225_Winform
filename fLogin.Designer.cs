@@ -73,8 +73,9 @@ namespace CoffeeShopManager
             this.btnExit.AutoEllipsis = true;
             this.btnExit.BackColor = System.Drawing.Color.Red;
             this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnExit.FlatAppearance.BorderColor = System.Drawing.SystemColors.Window;
+            this.btnExit.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
             this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.SystemColors.Window;
             this.btnExit.Location = new System.Drawing.Point(394, 327);
@@ -88,9 +89,12 @@ namespace CoffeeShopManager
             // btnLogin
             // 
             this.btnLogin.AutoEllipsis = true;
-            this.btnLogin.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.btnLogin.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnLogin.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
             this.btnLogin.FlatAppearance.BorderSize = 0;
+            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.ForeColor = System.Drawing.SystemColors.Window;
             this.btnLogin.Location = new System.Drawing.Point(158, 327);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(230, 40);
@@ -110,10 +114,13 @@ namespace CoffeeShopManager
             // 
             // txtPassWord
             // 
+            this.txtPassWord.BackColor = System.Drawing.Color.Turquoise;
+            this.txtPassWord.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPassWord.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassWord.ForeColor = System.Drawing.SystemColors.Window;
             this.txtPassWord.Location = new System.Drawing.Point(7, 43);
             this.txtPassWord.Name = "txtPassWord";
-            this.txtPassWord.Size = new System.Drawing.Size(333, 34);
+            this.txtPassWord.Size = new System.Drawing.Size(333, 27);
             this.txtPassWord.TabIndex = 2;
             this.txtPassWord.UseSystemPasswordChar = true;
             // 
@@ -138,11 +145,14 @@ namespace CoffeeShopManager
             // 
             // txtUserName
             // 
+            this.txtUserName.BackColor = System.Drawing.Color.Turquoise;
+            this.txtUserName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUserName.CausesValidation = false;
             this.txtUserName.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUserName.ForeColor = System.Drawing.SystemColors.Window;
             this.txtUserName.Location = new System.Drawing.Point(7, 43);
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(333, 34);
+            this.txtUserName.Size = new System.Drawing.Size(333, 27);
             this.txtUserName.TabIndex = 2;
             // 
             // userName

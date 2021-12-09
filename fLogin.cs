@@ -18,7 +18,7 @@ namespace CoffeeShopManager
         {
             InitializeComponent();
             this.txtPassWord.Text = "1";
-            this.txtUserName.Text = "Admin";
+            this.txtUserName.Text = "admin";
         }
         #region
         public string EncodingPassword(string pass_input)
