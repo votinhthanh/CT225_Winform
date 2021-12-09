@@ -50,3 +50,4 @@ D:\NamTu\CT251_WD\Project\DoAnCT251\obj\Debug\CoffeeShopManager.csproj.GenerateR
 D:\NamTu\CT251_WD\Project\DoAnCT251\obj\Debug\CoffeeShopManager.csproj.CoreCompileInputs.cache
 D:\NamTu\CT251_WD\Project\DoAnCT251\obj\Debug\CoffeeShopManager.exe
 D:\NamTu\CT251_WD\Project\DoAnCT251\obj\Debug\CoffeeShopManager.pdb
+D:\NamTu\CT251_WD\Project\DoAnCT251\obj\Debug\CoffeeShopManager.csproj.AssemblyReference.cache

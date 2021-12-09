@@ -247,6 +247,7 @@ namespace CoffeeShopManager
             0,
             0,
             0});
+            this.nmCount.ValueChanged += new System.EventHandler(this.nmCount_ValueChanged);
             // 
             // btnAddFood
             // 

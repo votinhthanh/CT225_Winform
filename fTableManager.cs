@@ -400,9 +400,13 @@ namespace CoffeeShopManager
         #endregion
         private void Btn_Click(object sender, EventArgs e)
         {
+
             int tableId = ((sender as Button).Tag as Table).ID;
             lsvBill.Tag = (sender as Button).Tag;
             nmDiscount.Value = 0;
+            nmCount.Value = 1;
+            LoadListTable();
+            loadListCategoryFoodNameOnComboBox();
             ShowBill(tableId);
         }
         private void btnAddFood_Click(object sender, EventArgs e)
@@ -508,6 +512,15 @@ namespace CoffeeShopManager
         private void f_SwitchTableEvent(object sender, EventArgs e)
         {
             LoadListTable();
+        }
+
+        private void nmCount_ValueChanged(object sender, EventArgs e)
+        {
+            Table tableClicked = lsvBill.Tag as Table;
+            if (tableClicked != null)
+            {
+                ShowBill(tableClicked.ID);
+            }
         }
     }
 }
