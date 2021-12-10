@@ -1048,7 +1048,6 @@ namespace CoffeeShopManager
             this.txtUserName.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtUserName.Location = new System.Drawing.Point(157, 18);
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.ReadOnly = true;
             this.txtUserName.Size = new System.Drawing.Size(286, 33);
             this.txtUserName.TabIndex = 7;
             // 

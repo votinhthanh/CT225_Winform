@@ -173,6 +173,25 @@ namespace CoffeeShopManager
             connection.Close();
             return result > 0;
         }
+        bool getBillInfoByIdFood(int food_id)
+        {
+            string connectSTR = @"Data Source=.\sqlexpress;Initial Catalog=Coffee_Shop_Manager;Integrated Security=True";
+            SqlConnection connection = new SqlConnection(connectSTR);
+            connection.Open();
+            string query = "SELECT * FROM BillInfo WHERE idFood = " + food_id;
+            SqlCommand command = new SqlCommand(query, connection);
+            DataTable data = new DataTable();
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(data);
+            connection.Close();
+            BillInfo billInfo = null;
+            foreach (DataRow item in data.Rows)
+            {
+                billInfo = new BillInfo(item);
+                return true;
+            }
+            return false;
+        }
         bool DeleteBillInfoByIdFood(int food_id)
         {
             string connectSTR = @"Data Source=.\sqlexpress;Initial Catalog=Coffee_Shop_Manager;Integrated Security=True";
@@ -262,6 +281,25 @@ namespace CoffeeShopManager
             result = (int)command.ExecuteNonQuery();
             connection.Close();
             return result > 0;
+        }
+        bool getFoodByIdCategory(int category_id)
+        {
+            string connectSTR = @"Data Source=.\sqlexpress;Initial Catalog=Coffee_Shop_Manager;Integrated Security=True";
+            SqlConnection connection = new SqlConnection(connectSTR);
+            connection.Open();
+            string query = "SELECT * FROM Food WHERE idCategory = " + category_id;
+            SqlCommand command = new SqlCommand(query, connection);
+            DataTable data = new DataTable();
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(data);
+            connection.Close();
+            Category category = null;
+            foreach (DataRow item in data.Rows)
+            {
+                category = new Category(item);
+                return true;
+            }
+            return false;
         }
         bool DeleteFoodByIdCategory(int category_id)
         {
@@ -353,6 +391,19 @@ namespace CoffeeShopManager
             result = (int)command.ExecuteNonQuery();
             connection.Close();
             return result > 0;
+        }
+        bool getBillByIdTable(int table_id)
+        {
+            string connectSTR = @"Data Source=.\sqlexpress;Initial Catalog=Coffee_Shop_Manager;Integrated Security=True";
+            SqlConnection connection = new SqlConnection(connectSTR);
+            connection.Open();
+            string query = "SELECT * FROM Bill WHERE idTable = " + table_id;
+            SqlCommand command = new SqlCommand(query, connection);
+            DataTable data = new DataTable();
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(data);
+            connection.Close();
+            return data.Rows.Count > 0;
         }
         bool DeleteBillByIdTable(int table_id)
         {
@@ -601,7 +652,7 @@ namespace CoffeeShopManager
         {
             int food_id = int.Parse(txtFoodID.Text);
             string food_name = txtFoodName.Text;
-            if (!DeleteBillInfoByIdFood(food_id))
+            if (!DeleteBillInfoByIdFood(food_id) && getBillInfoByIdFood(food_id))
             {
                 MessageBox.Show("Xóa món ăn KHÔNG thành công !!!", "Báo lỗi!");
                 return;
@@ -694,7 +745,7 @@ namespace CoffeeShopManager
         private void btnDelCategory_Click(object sender, EventArgs e)
         {
             int category_id = int.Parse(txtCategoryId.Text);
-            if (!DeleteFoodByIdCategory(category_id))
+            if (!DeleteFoodByIdCategory(category_id) && getFoodByIdCategory(category_id))
             {
                 MessageBox.Show("Xóa danh mục KHÔNG thành công !!!", "Báo lỗi!");
                 return;
@@ -788,14 +839,14 @@ namespace CoffeeShopManager
         {
             int table_id = int.Parse(txtTableID.Text);
             string table_name = txtFoodName.Text;
-            if (!DeleteBillByIdTable(table_id))
+            if (!DeleteBillByIdTable(table_id) && getBillByIdTable(table_id))
             {
                 MessageBox.Show("Xóa bàn ăn KHÔNG thành công !!!", "Báo lỗi!");
                 return;
             }
-            if(DeleteTable(table_id))
+            if(DeleteTable(table_id) )
             {
-                MessageBox.Show("Xóa bàn '" + table_name + "' thành công !!!", "Thông báo !");
+                MessageBox.Show("Xóa bàn ăn thành công !!!", "Thông báo !");
                 if (deleteTableFoodEvent != null)
                 {
                     deleteTableFoodEvent(this, new EventArgs());
