@@ -468,8 +468,8 @@ namespace CoffeeShopManager
                 MessageBox.Show("Vui lòng chọn bàn muốn thanh toán", "Cảnh báo !");
                 return;
             }
-            if (MessageBox.Show("CHI TIẾT THANH TOÁN CHO " + tableClicked.Name +
-                  String.Format("\nGIẢM GIÁ:   {0}\nTỔNG THANH TOÁN:    {1}", discount, finalTotalPrice)
+            if (MessageBox.Show("CHI TIẾT THANH TOÁN CHO '" + tableClicked.Name.ToUpper() +
+                  String.Format("'\nGIẢM GIÁ:   {0}%\nTỔNG THANH TOÁN:    {1}", discount, finalTotalPrice)
                   , "Thông báo !!!", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
             {
                 CheckOutBill(tableClicked.ID, discount, (float)finalTotalPrice);
@@ -521,6 +521,11 @@ namespace CoffeeShopManager
             {
                 ShowBill(tableClicked.ID);
             }
+        }
+
+        private void accountInformationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            accountInformationToolStripMenuItem.ForeColor = Color.Black;
         }
     }
 }

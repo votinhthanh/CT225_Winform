@@ -99,10 +99,11 @@ namespace CoffeeShopManager
             this.showInformationToolStripMenuItem,
             this.logoutToolStripMenuItem});
             this.accountInformationToolStripMenuItem.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.accountInformationToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Window;
+            this.accountInformationToolStripMenuItem.ForeColor = System.Drawing.SystemColors.MenuBar;
             this.accountInformationToolStripMenuItem.Name = "accountInformationToolStripMenuItem";
             this.accountInformationToolStripMenuItem.Size = new System.Drawing.Size(212, 29);
             this.accountInformationToolStripMenuItem.Text = "Thông tin tài khoản";
+            this.accountInformationToolStripMenuItem.Click += new System.EventHandler(this.accountInformationToolStripMenuItem_Click);
             // 
             // showInformationToolStripMenuItem
             // 

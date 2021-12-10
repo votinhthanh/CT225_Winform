@@ -409,11 +409,11 @@ namespace CoffeeShopManager
             // 
             // txtSearchFood
             // 
-            this.txtSearchFood.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSearchFood.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSearchFood.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchFood.Location = new System.Drawing.Point(22, 25);
+            this.txtSearchFood.Location = new System.Drawing.Point(22, 29);
             this.txtSearchFood.Name = "txtSearchFood";
-            this.txtSearchFood.Size = new System.Drawing.Size(301, 29);
+            this.txtSearchFood.Size = new System.Drawing.Size(301, 36);
             this.txtSearchFood.TabIndex = 5;
             this.txtSearchFood.Text = "Nhập tên món ăn...\r\n";
             this.txtSearchFood.Click += new System.EventHandler(this.txtSearchFood_Click);
